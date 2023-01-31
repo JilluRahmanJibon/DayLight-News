@@ -92,12 +92,25 @@ const HomePageDivisionData = () => {
             </div>
           </div>
           <div className=" gap-5 pb-5 grid grid-flow-cols-1 md:grid-cols-2 sm-flex xl:grid-cols-4 lg:grid-cols-3">
-            {datas &&
+            {city?.district ? (
+              <>
+                {districtData?.slice(2, 6).map((data) => (
+                  <DivisionHorizontalData data={data} key={data?._id} />
+                ))}
+              </>
+            ) : (
+              <>
+                {datas?.slice(1, 5).map((data) => (
+                  <DivisionHorizontalData data={data} key={data?._id} />
+                ))}
+              </>
+            )}
+            {/* {datas &&
               datas
                 ?.slice(1, 5)
                 ?.map((data) => (
                   <DivisionHorizontalData data={data} key={data?._id} />
-                ))}
+                ))} */}
           </div>
         </div>
         <div className="w-full sm:w-[800px]  mx-auto xl:w-[300px] ">
