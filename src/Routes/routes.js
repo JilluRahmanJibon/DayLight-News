@@ -7,6 +7,7 @@ import Fashion from "../Home/HomePageLetestNews/Fashion";
 import Health from "../Home/HomePageLetestNews/Health";
 import Nuture from "../Home/HomePageLetestNews/Nuture";
 import Travel from "../Home/HomePageLetestNews/Travel";
+import HomePageStoryAllImage from "../Home/HomePageStorySection/HomePageStoryAllImage";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AdminAccount from "../Pages/Accounts/Admin/AdminAccount";
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
           { path: "/", element: <Travel /> },
           { path: "/domestic", element: <Fashion /> },
           { path: "/health", element: <Health /> },
-          { path: "/nature", element: <Nuture /> },
+          { path: "/natural", element: <Nuture /> },
         ],
       },
       { path: "detail/:id", element: <CardDetailsPage /> },
@@ -93,7 +94,7 @@ export const router = createBrowserRouter([
     ],
   },
 
-
+  { path: "story/:id", element: <HomePageStoryAllImage /> },
   { path: "signup", element: <SignUp /> },
   { path: "login", element: <SignIn /> },
 ]);

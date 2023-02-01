@@ -12,7 +12,7 @@ const HomePageDivisionData = () => {
   const [preData, setPreData] = useState([]);
   const [dis, setDis] = useState("off");
   useEffect(() => {
-    fetch(`http://localhost:8000/news`)
+    fetch(`${process.env.REACT_APP_API_URL}news`)
       .then((res) => res.json())
       .then((result) => {
         setDatas(result);
@@ -32,7 +32,7 @@ const HomePageDivisionData = () => {
       setCity({ district: district });
     }
     fetch(
-      `http://localhost:8000/district/${
+      `${process.env.REACT_APP_API_URL}district/${
         city?.district ? city?.district : "Dhaka"
       }`
     )
@@ -45,7 +45,7 @@ const HomePageDivisionData = () => {
   };
   useEffect(() => {
     fetch(
-      `http://localhost:8000/district/Dhaka
+      `${process.env.REACT_APP_API_URL}district/Dhaka
       `
     )
       .then((res) => res.json())
@@ -91,10 +91,10 @@ const HomePageDivisionData = () => {
               )}
             </div>
           </div>
-          <div className=" gap-5 pb-5 grid grid-flow-cols-1 md:grid-cols-2 sm-flex xl:grid-cols-4 lg:grid-cols-3">
+          <div className=" gap-5 mt-2  pb-5 grid grid-flow-cols-1 md:grid-cols-2 sm-flex xl:grid-cols-4 lg:grid-cols-3">
             {city?.district ? (
               <>
-                {districtData?.slice(2, 6).map((data) => (
+                {districtData?.slice(1, 5).map((data) => (
                   <DivisionHorizontalData data={data} key={data?._id} />
                 ))}
               </>
@@ -105,12 +105,6 @@ const HomePageDivisionData = () => {
                 ))}
               </>
             )}
-            {/* {datas &&
-              datas
-                ?.slice(1, 5)
-                ?.map((data) => (
-                  <DivisionHorizontalData data={data} key={data?._id} />
-                ))} */}
           </div>
         </div>
         <div className="w-full sm:w-[800px]  mx-auto xl:w-[300px] ">

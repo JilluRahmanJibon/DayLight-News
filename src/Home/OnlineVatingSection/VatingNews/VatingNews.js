@@ -28,19 +28,18 @@ const VatingNews = () => {
   }
 
   return (
-    <div>
-      <Link className="flex text-xl font-semibold hover:text-red-600 transition-all gap-2">
-        Online Vating{" "}
+    <div className="">
+      <Link className="flex text-xl sm:text-2xl font-bold text-red-500 transition-all gap-2">
+        ONLINE VOTING
         <span>
           <BsArrowUpRightSquareFill className="text-red-600 mt-1" />
         </span>
       </Link>
-      <div className="mt-5">
+      <div className="mt-5 border bg-cyan-100">
         <Splide
           aria-label=""
           options={{
             autoplay: true,
-
             rewind: true,
             arrows: false,
             pagination: false,
@@ -50,13 +49,15 @@ const VatingNews = () => {
           {isLoading && <SkeletonLoading cards={8} />}
           {newsForVote?.map((voteNews) => (
             <SplideSlide className="px-1" key={voteNews._id}>
-              <div className="">
+              <div className="m-5">
                 <img
-                  className="h-52 w-full rounded-t-xl object-cover"
+                  className="h-52 w-full object-cover"
                   src={voteNews.picture}
                   alt=""
                 />
-                <p>{voteNews?.description?.slice(0, 215)}</p>
+                <p className="text-gray-600">
+                  {voteNews?.description?.slice(0, 220)}
+                </p>
               </div>
 
               <div className="">
