@@ -28,6 +28,7 @@ const DetailsCommentBox = ({ detail, singleNewsComment, refetch }) => {
       _id: detail._id,
       time: format(new Date(), "p"),
       date: format(new Date(), "PP"),
+      id: new Date().getTime().toString(),
     };
 
     addComment(commentData).then((data) => {

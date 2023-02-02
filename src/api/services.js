@@ -100,11 +100,43 @@ export const getComments = async (email) => {
   const data = await response.json();
   return data;
 };
+//update a comment
+export const updateComment = async (commentData) => {
+  const response = await fetch(
+    `http://localhost:8000/comments/${commentData?._id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("news-token")}`,
+      },
+      body: JSON.stringify(commentData),
+    }
+  );
+  const data = await response.json();
+  return data;
+};
+
+// get single comment by comment id
+export const getComment = async (id) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}comment/comment/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("news-token")}`,
+      },
+    }
+  );
+  const data = await response.json();
+  return data;
+};
 
 // delete  a comments
 export const deleteComment = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL}comments/${id}`,
+    `${process.env.REACT_APP_API_URL}comment/comment/${id}`,
     {
       method: "DELETE",
       headers: {
