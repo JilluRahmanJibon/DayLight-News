@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../../Context/AuthContext";
+import React, { useContext, useState } from "react";
 import Chat from "./Chat";
 import io from "socket.io-client";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const socket = io("http://localhost:5000");
 
 const Message = () => {
   const { user } = useContext(AuthContext);
+  const [username, setUsername] = useState(user?.name);
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
 
