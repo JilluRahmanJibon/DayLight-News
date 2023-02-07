@@ -23,9 +23,9 @@ import EnvironmentNews from "./EnvironmentNews/EnvironmentNews";
 import HomePageDivisionData from "./DistricNews/HomePageDivisionData";
 import LiveStockMarketData from "./LiveStockMarketData/LiveStockMarketData";
 import SpacialNews from "../Components/SpacialNews/SpacialNews";
-
-const Home = () =>
-{
+import chatImage from "../assest/Chat/chat.png";
+import "./Home.css";
+const Home = () => {
   useTitle("Home");
   const { searchContent } = useContext(AuthContext);
 
@@ -36,8 +36,11 @@ const Home = () =>
       {searchContent ? (
         <SearchData />
       ) : (
-        <>
-            <Banner />
+        <div>
+          <div className="chatImage ">
+            <img src={chatImage} alt="" />
+          </div>
+          <Banner />
           <BreakingNews />
           <TrendingNews />
           <HomePageDivisionData />
@@ -48,10 +51,10 @@ const Home = () =>
           <HomePageStorySection />
           <VideoSection />
           <ViralNews />
-            {/* <News/> */}
+          {/* <News/> */}
           <EnvironmentNews />
           <Voices />
-        </>
+        </div>
       )}
     </div>
   );
