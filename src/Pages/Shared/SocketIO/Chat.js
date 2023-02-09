@@ -8,7 +8,7 @@ function Chat({ socket, username, room }) {
   const sendMessage = async () => {
     if (currentMessage !== "") {
       const messageData = {
-        room: room,
+        room,
         author: username,
         message: currentMessage,
         time:
@@ -29,6 +29,8 @@ function Chat({ socket, username, room }) {
     });
   }, [socket]);
 
+  console.log(messageList);
+
   return (
     <div className="chat-window">
       <div className="chat-header">
@@ -40,7 +42,7 @@ function Chat({ socket, username, room }) {
             return (
               <div
                 className="message"
-                id={username === messageContent.author ? "you" : "other"}
+                id={username === messageContent.author ? "other" : "you"}
               >
                 <div>
                   <div className="message-content">

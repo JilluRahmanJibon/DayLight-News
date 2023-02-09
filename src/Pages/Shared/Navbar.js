@@ -48,7 +48,6 @@ const Navbar = () => {
 
   return (
     <main>
-      <Message />
       <section className=" pb-5">
         <div className="">
           <div className="max-w-[1440px] mx-auto flex  justify-between py-1">

@@ -26,6 +26,7 @@ import SpacialNews from "../Components/SpacialNews/SpacialNews";
 import chatImage from "../assest/Chat/chat.png";
 import "./Home.css";
 import GoToTop from "../Pages/Shared/GoToTop/GoToTop";
+import ChatModal from "../Pages/Shared/SocketIO/ChatModal";
 const Home = () => {
   useTitle("Home");
   const { searchContent } = useContext(AuthContext);
@@ -38,8 +39,10 @@ const Home = () => {
         <SearchData />
       ) : (
         <div>
-          <div className="chatImage ">
-            <img src={chatImage} alt="" />
+
+
+          <div >
+            <label htmlFor="chat-modal" className="btn chatImage"> <img src={chatImage} alt="" /></label>
           </div>
           <Banner />
           <BreakingNews />
@@ -58,6 +61,7 @@ const Home = () => {
         </div>
       )}
       <GoToTop />
+      <ChatModal />
     </div>
   );
 };

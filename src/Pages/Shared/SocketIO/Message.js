@@ -2,18 +2,18 @@ import React, { useContext, useState } from "react";
 import Chat from "./Chat";
 import io from "socket.io-client";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import "./Message.css";
 
-const socket = io("http://localhost:5000");
+const socket = io("http://localhost:5000/");
 
 const Message = () => {
   const { user } = useContext(AuthContext);
-  const [username, setUsername] = useState(user?.name);
-  const [room, setRoom] = useState("");
+  console.log(user);
   const [showChat, setShowChat] = useState(false);
 
   const joinRoom = () => {
-    if (username !== "" && room !== "") {
-      socket.emit("join_room", room);
+    if (user?.displayName !== "" && user?.email !== "") {
+      socket.emit("join_room", user?.email);
       setShowChat(true);
     }
   };
@@ -22,7 +22,7 @@ const Message = () => {
     <div className="App">
       {!showChat ? (
         <div className="joinChatContainer">
-          <h3>Join A Chat</h3>
+          {/* <h3>Join A Chat</h3>
           <input
             type="text"
             placeholder="John..."
@@ -36,11 +36,11 @@ const Message = () => {
             onChange={(event) => {
               setRoom(event.target.value);
             }}
-          />
+          /> */}
           <button onClick={joinRoom}>Join A Room</button>
         </div>
       ) : (
-        <Chat socket={socket} username={username} room={room} />
+        <Chat socket={socket} username={user?.displayName} room={user?.email} />
       )}
     </div>
   );
