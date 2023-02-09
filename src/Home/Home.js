@@ -25,6 +25,7 @@ import LiveStockMarketData from "./LiveStockMarketData/LiveStockMarketData";
 import SpacialNews from "../Components/SpacialNews/SpacialNews";
 import chatImage from "../assest/Chat/chat.png";
 import "./Home.css";
+import GoToTop from "../Pages/Shared/GoToTop/GoToTop";
 const Home = () => {
   useTitle("Home");
   const { searchContent } = useContext(AuthContext);
@@ -56,6 +57,7 @@ const Home = () => {
           <Voices />
         </div>
       )}
+      <GoToTop />
     </div>
   );
 };
