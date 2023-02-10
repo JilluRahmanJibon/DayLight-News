@@ -25,24 +25,40 @@ import LiveStockMarketData from "./LiveStockMarketData/LiveStockMarketData";
 import SpacialNews from "../Components/SpacialNews/SpacialNews";
 import chatImage from "../assest/Chat/chat.png";
 import "./Home.css";
-import GoToTop from "../Pages/Shared/GoToTop/GoToTop";
 import ChatModal from "../Pages/Shared/SocketIO/ChatModal";
+import ScrollToTop from "react-scroll-to-top";
 const Home = () => {
   useTitle("Home");
   const { searchContent } = useContext(AuthContext);
+
+  const goToBtn = () => {
+    console.log("clicked");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+      left: 0,
+    });
+  };
 
   return (
     <div className="max-w-[1440px] mx-auto">
       {/* <Category /> */}
       {/* <Spinner /> */}
+
       {searchContent ? (
         <SearchData />
       ) : (
         <div>
 
+          <div className="">
+            <div>
+              <label htmlFor="chat-modal" className="btn chatImage"> <img src={chatImage} alt="" /></label>
 
-          <div >
-            <label htmlFor="chat-modal" className="btn chatImage"> <img src={chatImage} alt="" /></label>
+            </div>
+            {/* <div className="topbutton" >
+              <button onClick={() => goToBtn()} className="text-xl bg-orange-400  text-white">Top</button>
+            </div> */}
+
           </div>
           <Banner />
           <BreakingNews />
@@ -60,7 +76,6 @@ const Home = () => {
           <Voices />
         </div>
       )}
-      <GoToTop />
       <ChatModal />
     </div>
   );
