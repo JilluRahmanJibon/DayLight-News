@@ -16,23 +16,18 @@ const Banner = () => {
       ),
   });
 
-
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-1  my-4 sm:my-10 md:my-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-1  my-4 sm:my-10 md:my-10">
         <div className=" ">
           <Splide
             aria-label=""
             options={{
               autoplay: true,
-              height: "65vh",
-
+              height: "486px",
               breakpoints: {
-                1500: {
-                  height: "60vh",
-                },
-                1024: {
-                  height: "40vh",
+                500: {
+                  height: "330px",
                 },
               },
               rewind: true,
@@ -47,7 +42,7 @@ const Banner = () => {
                 <NavLink
                   id="RouterNavLink"
                   to={`/detail/${banner._id}`}
-                  className="w-full h-[100%] gradient"
+                  className="w-full h-[full] gradient"
                 >
                   <img
                     className="h-full w-full object-cover"
@@ -91,13 +86,13 @@ const Banner = () => {
             ))}
           </Splide>
         </div>
-        <div className=" gap-1 grid grid-cols-1 sm:grid-cols-2 h-full w-full">
+        <div className=" gap-1 grid grid-cols-1 md:grid-cols-2 h-full w-full">
           {isLoading && <SkeletonLoading cards={2} />}
           {bannerData?.slice(-4)?.map((banner) => (
             <Link to={`/detail/${banner._id}`} key={banner._id}>
               <div className=" h-full border sm:border-none  relative overflow-hidden">
                 <img
-                  className="w-[100%] xl:h-[252px] lg:h-[200px] md:h-[180px] sm:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
+                  className="w-[100%] lg:h-[241px]  md:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
                   src={banner?.picture}
                   alt=""
                 />
