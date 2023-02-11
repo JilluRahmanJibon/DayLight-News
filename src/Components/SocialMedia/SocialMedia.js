@@ -10,7 +10,6 @@ import { useQuery } from "@tanstack/react-query";
 const SocialMedia = () => {
   const { user } = useContext(AuthContext);
   const [role, setRole] = useState("");
-  console.log(role);
   useEffect(() => {
     getRole(user?.email).then((data) => {
       setRole(data);
@@ -80,9 +79,7 @@ const SocialMedia = () => {
             <div className="px-6 py-2">
               <div className="font-bold text-xl mb-2">{news.title}</div>
               <p className="text-gray-700 text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                fugit corporis ex praesentium iure. Illum esse deserunt tempora
-                dolor quasi.
+                {news?.description.slice(0, 200)}
               </p>
             </div>
             <div className="px-6 py-2">

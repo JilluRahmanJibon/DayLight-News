@@ -22,7 +22,6 @@ const AddSocialPost = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const image = files[0];
-    console.log(image);
     const imageHostKey = process.env.REACT_APP_Imgbb_API_KEY;
     const formData = new FormData();
     formData.append("image", image);
@@ -33,7 +32,6 @@ const AddSocialPost = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
-        console.log(imageData);
         if (imageData.success) {
           const socialNews = {
             title: event.target.title.value,
