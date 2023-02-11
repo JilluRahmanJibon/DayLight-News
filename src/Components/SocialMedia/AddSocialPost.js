@@ -22,6 +22,7 @@ const AddSocialPost = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const image = files[0];
+    console.log(image);
     const imageHostKey = process.env.REACT_APP_Imgbb_API_KEY;
     const formData = new FormData();
     formData.append("image", image);
@@ -32,6 +33,7 @@ const AddSocialPost = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
+        console.log(imageData);
         if (imageData.success) {
           const socialNews = {
             title: event.target.title.value,
@@ -40,8 +42,8 @@ const AddSocialPost = () => {
             email: user?.email,
             name: user?.displayName,
           };
-          console.log(socialNews);
-          fetch("http://localhost:8000/addSocialNews", {
+
+          fetch(`${process.env.REACT_APP_API_URL}addSocialNews`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
