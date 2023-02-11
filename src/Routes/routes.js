@@ -39,6 +39,7 @@ import PrivateRoute from "./PrivateRoute";
 import TranslationPage from "../Components/Translation/TranslationPage";
 import GadgetsProfile from "../Gadgets/GadgetsProfile";
 import HomePageStoryAllImage from "../Home/HomePageStorySection/HomePageStoryAllImage";
+import Massenger from "../Pages/Massage/Massenger";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -77,7 +78,13 @@ export const router = createBrowserRouter([
             <SocialMediaLayout></SocialMediaLayout>
           </PrivateRoute>
         ),
-        children: [ { path: "/socialMedia", element: <SocialMedia /> } ],
+        children: [
+          { path: "/socialMedia", element: <SocialMedia /> },
+          {
+            path: "/socialMedia/massenger",
+            element: <Massenger />,
+          }
+        ],
       },
       { path: "/addSocialPost", element: <AddSocialPost /> },
       { path: "/mySocialNews", element: <MyNews /> },
