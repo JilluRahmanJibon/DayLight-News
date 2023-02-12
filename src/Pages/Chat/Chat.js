@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import ChatBox from '../../Components/SocketIO/ChatBox/ChatBox';
 import Conversation from '../../Components/SocketIO/Conversation/Conversation';
 import LogoSearch from '../../Components/SocketIO/LogoSearch/LogoSearch';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
