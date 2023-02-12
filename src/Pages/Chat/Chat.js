@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import Conversation from '../../Components/SocketIO/Conversation/Conversation';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import "./Chat.css";
 
 const Chat = () => {
+
+    const { user } = useContext(AuthContext);
+
+    const [chats, setChats] = useState([]);
+    const [onlineUsers, setOnlineUsers] = useState([]);
+    const [currentChat, setCurrentChat] = useState(null);
+    const [sendMessage, setSendMessage] = useState(null);
+    const [receivedMessage, setReceivedMessage] = useState(null);
+
+    const checkOnlineStatus = (chat) => {
+        const chatMember = chat.members.find((member) => member !== user._id);
+        const online = onlineUsers.find((user) => user.userId === chatMember);
+        return online ? true : false;
+    };
+
     return (
         <div className="Chat">
             {/* Left Side */}
@@ -30,9 +47,6 @@ const Chat = () => {
             {/* Right Side */}
 
             <div className="Right-side-chat">
-                <div style={{ width: "20rem", alignSelf: "flex-end" }}>
-                    <NavIcons />
-                </div>
                 <ChatBox
                     chat={currentChat}
                     currentUser={user._id}

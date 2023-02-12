@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Conversation = () => {
+const Conversation = ({ data, currentUser, online }) => {
+    const [userData, setUserData] = useState(null)
     return (
         <>
             <div className="follower conversation">
