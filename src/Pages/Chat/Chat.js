@@ -1,9 +1,12 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ChatBox from '../../Components/SocketIO/ChatBox/ChatBox';
 import Conversation from '../../Components/SocketIO/Conversation/Conversation';
 import LogoSearch from '../../Components/SocketIO/LogoSearch/LogoSearch';
 import "./Chat.css";
+
+import { io } from "socket.io-client";
+import { userChats } from '../../api/ChatRequests';
 
 const Chat = () => {
 
