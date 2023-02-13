@@ -9,7 +9,7 @@ import { CgDarkMode } from "react-icons/cg";
 import 'react-loading-skeleton/dist/skeleton.css'
 import { QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 import { DarkAndWhiteContext } from "./Contexts/AuthProvider/AuthProvider";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./redux/store";
 
 

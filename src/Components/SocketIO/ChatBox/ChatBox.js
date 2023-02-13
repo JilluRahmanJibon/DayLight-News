@@ -6,15 +6,20 @@ import InputEmoji from 'react-input-emoji'
 import { addMessage, getMessages } from '../../../api/MessageRequests';
 import { getUser } from '../../../api/UserRequests';
 
-const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
+const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage, conversationProfile }) => {
     const [userData, setUserData] = useState(null);
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
 
 
+
     const handleChange = (newMessage) => {
         setNewMessage(newMessage)
     }
+
+
+
+
 
     // fetching data for header
     useEffect(() => {
@@ -99,9 +104,8 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
                                 <div>
                                     <img
                                         src={
-                                            userData?.profilePicture
-                                                ? process.env.REACT_APP_PUBLIC_FOLDER +
-                                                userData.profilePicture
+                                            conversationProfile
+                                                ? conversationProfile.image
                                                 : process.env.REACT_APP_PUBLIC_FOLDER +
                                                 "defaultProfile.png"
                                         }

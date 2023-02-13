@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ChatBox from '../../Components/SocketIO/ChatBox/ChatBox';
 import Conversation from '../../Components/SocketIO/Conversation/Conversation';
 import LogoSearch from '../../Components/SocketIO/LogoSearch/LogoSearch';
@@ -9,15 +9,15 @@ import { io } from "socket.io-client";
 import { userChats } from '../../api/ChatRequests';
 
 const Chat = () => {
-    const dispatch = useDispatch();
     const socket = useRef();
-    const { user } = useSelector((state) => state.authReducer.authData);
-
+    const user = useSelector((state) => state);
+    console.log(user)
     const [chats, setChats] = useState([]);
     const [onlineUsers, setOnlineUsers] = useState([]);
     const [currentChat, setCurrentChat] = useState(null);
     const [sendMessage, setSendMessage] = useState(null);
     const [receivedMessage, setReceivedMessage] = useState(null);
+    const [conversationProfile, setConversationProfile] = useState(null);
     // Get the chat in chat section
     useEffect(() => {
         const getChats = async () => {
@@ -64,6 +64,16 @@ const Chat = () => {
         return online ? true : false;
     };
 
+
+    const [writers, setWriters] = useState([]);
+    //all writers
+    useEffect(() => {
+        fetch("http://localhost:5000/writers")
+            .then(res => res.json())
+            .then(data => setWriters(data))
+    }, [])
+    console.log(writers)
+
     return (
         <div className="Chat">
             {/* Left Side */}
@@ -72,16 +82,23 @@ const Chat = () => {
                 <div className="Chat-container">
                     <h2>Chats</h2>
                     <div className="Chat-list">
-                        {chats.map((chat) => (
+                        {/* {
+                        writers.map(writer => (
+                            <div >
+<img src={writer.image} alt="" />
+                        </div>))
+                    } */}
+                        {writers.map((writer) => (
                             <div
                                 onClick={() => {
-                                    setCurrentChat(chat);
+                                    setCurrentChat(writer);
                                 }}
                             >
                                 <Conversation
-                                    data={chat}
-                                    currentUser={user._id}
-                                    online={checkOnlineStatus(chat)}
+                                    setConversationProfile={setConversationProfile}
+                                    writer={writer}
+                                // currentUser={user?._id}
+                                // online={checkOnlineStatus(writer)}
                                 />
                             </div>
                         ))}
@@ -93,6 +110,7 @@ const Chat = () => {
 
             <div className="Right-side-chat">
                 <ChatBox
+                    conversationProfile={conversationProfile}
                     chat={currentChat}
                     currentUser={user._id}
                     setSendMessage={setSendMessage}

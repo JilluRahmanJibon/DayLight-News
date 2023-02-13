@@ -16,11 +16,15 @@ import Voices from "./Voices/Voices";
 import ViralNews from "./ViralNews/ViralNews";
 import VideoSection from "./VideoSection/VideoSection";
 import News from "./News/News";
+import { useSelector } from "react-redux";
 
-const Home = () =>
-{
+const Home = () => {
   useTitle("Home");
   const { searchContent } = useContext(AuthContext);
+
+
+  const state = useSelector(state => state);
+  console.log(state);
 
   return (
     <div className="max-w-[1440px] mx-auto">
@@ -39,7 +43,7 @@ const Home = () =>
           <HomePageStorySection />
           <VideoSection />
           <ViralNews />
-          <News/>
+          <News />
           <EnvironmentNews />
           <Voices />
         </>

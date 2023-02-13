@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 
-const Conversation = ({ data, currentUser, online }) => {
+const Conversation = ({ writer, currentUser, online, setConversationProfile }) => {
     const [userData, setUserData] = useState(null)
+
+
+
     return (
         <>
             <div className="follower conversation">
-                <div>
+                <div onClick={() => setConversationProfile(writer)}>
                     {online && <div className="online-dot"></div>}
                     <img
-                        src={userData?.profilePicture ? process.env.REACT_APP_PUBLIC_FOLDER + userData.profilePicture : process.env.REACT_APP_PUBLIC_FOLDER + "defaultProfile.png"}
+                        src={writer.image}
+
                         alt="Profile"
                         className="followerImage"
                         style={{ width: "50px", height: "50px" }}

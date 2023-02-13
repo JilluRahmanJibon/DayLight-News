@@ -1,12 +1,12 @@
 import React from 'react';
 import "./LogoSearch.css"
-import Logo from "../../../assest/logo/logo.png";
+import Logo from "../../../assest/logo/logo2.png";
 import { UilSearch } from '@iconscout/react-unicons'
 
 const LogoSearch = () => {
     return (
         <div className="LogoSearch">
-            <img src={Logo} alt="" />
+            <img src={Logo} className="w-10" alt="" />
             <div className="Search">
                 <input type="text" placeholder="#Explore" />
                 <div className="s-icon">
