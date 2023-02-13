@@ -14,8 +14,8 @@ const DistricModal = ({
 
   return (
     <div>
-      <input type="checkbox" id="update-modal" className="modal-toggle" />
-      <div className="modal">
+      <input type="checkbox" id="update-modal" className="modal-toggle " />
+      <div className="modal bg-cyan-50">
         <div className="modal-box relative text-black border border-red-300 bg-white  w-10/12 max-w-5xl">
           <form onSubmit={handleUpdateDistrict} className="">
             <div className="text-center">
@@ -25,7 +25,7 @@ const DistricModal = ({
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-2">
               {uniqueDistrict?.map((district, uxi) => (
                 <div
-                  className="flex items-center bg-red-50 p-2 rounded-md"
+                  className="flex items-center sm:bg-red-50 p-2 rounded-md"
                   key={uxi}
                   district={district}
                 >
@@ -61,12 +61,12 @@ const DistricModal = ({
                   className="radio radio-secondary h-4 w-4 mr-2"
                   required
                 />
-                <label htmlFor="" className="font-semibold text-xl">
+                <label htmlFor="" className="font-semibold text-sm sm:text-xl">
                   Click to make {city?.district} default city.
                 </label>
               </div>
             )}
-            <div className="text-center ">
+            <div className=" flex items-center justify-center ">
               <button
                 type="submit"
                 className="btn btn-success text-white mx-2"
