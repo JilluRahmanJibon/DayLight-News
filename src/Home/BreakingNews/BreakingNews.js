@@ -49,7 +49,7 @@ const BreakingNews = () => {
                 <h3 className="text-md link-hover  font-bold ">
                   {breaking?.title?.slice(0, 30)}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className=" text-sm">
                   {breaking?.description.slice(0, 90) + "..."}
                 </p>
               </div>

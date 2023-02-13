@@ -65,9 +65,9 @@ const Navbar = () => {
               {user?.uid ? (
                 <Link
                   to="/Donate"
-                  className="bg-black px-2 sm:px-5 py-1 text-white rounded-sm mr-5"
+                  className="bg-black px-2 sm:px-5 py-1 text-white rounded-md mr-5"
                 >
-                  Donate us
+                  Donate
                 </Link>
               ) : (
                 <label
@@ -201,12 +201,15 @@ const Navbar = () => {
                 <>
                   <div>
                     <button
-                      className="btn rounded-full btn-sm"
+                      className="p-1 bg-black text-white rounded-lg font-semibold mx-1"
                       onClick={logout}
                     >
-                      log out
+                      Log out
                     </button>
-                    <Link className="px-2" to="/account">
+                    <Link
+                      className="p-1 bg-gray-300 rounded-lg font-semibold"
+                      to="/account"
+                    >
                       Account
                     </Link>
                   </div>

@@ -84,7 +84,7 @@ const TrendingNews = () => {
                         ? trending?.title?.slice(0, 49) + "..."
                         : trending?.title}
                     </Link>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm ">
                       {trending?.description?.slice(0, 70) + "..."}
                       <span className="text-red-500">Read More</span>
                     </p>
