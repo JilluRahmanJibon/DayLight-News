@@ -7,7 +7,7 @@ const HomePageDivisionSingleCard = ({ data }) => {
     <Link to={`/detail/${_id}`} className="py-4 ">
       <div className="w-full h-full lg:h-[300px] lg:w-[500px] relative ">
         <img className="relative w-full h-full" src={picture} alt="" />
-        <h1 className="absolute bottom-0 w-full bg-slate-800 text-white p-3 rounded-b-lg">
+        <h1 className="absolute bottom-0 w-full bg-slate-800 text-white p-3 ">
           {title}
         </h1>
       </div>

@@ -58,7 +58,7 @@ const VatingOptions = ({ news, user, refetch }) => {
       <div className="mt-3 mx-5 select-none">
         <div className="bg-white ">
           <label
-            className={`flex  justify-between p-2 cursor-pointer hover:bg-green-200  `}
+            className={`flex  justify-between p-2 cursor-pointer hover:bg-green-100  `}
           >
             <div className="flex gap-2">
               <input
@@ -75,7 +75,7 @@ const VatingOptions = ({ news, user, refetch }) => {
         </div>
         <div className="bg-white my-2 ">
           <label
-            className={`flex justify-between p-2 cursor-pointer hover:bg-green-200 `}
+            className={`flex justify-between p-2 cursor-pointer hover:bg-green-100 `}
           >
             <div className="flex gap-2">
               <input
@@ -92,7 +92,7 @@ const VatingOptions = ({ news, user, refetch }) => {
         </div>
         <div className="bg-white  ">
           <label
-            className={`flex justify-between p-2 cursor-pointer hover:bg-green-200 `}
+            className={`flex justify-between p-2 cursor-pointer hover:bg-green-100 `}
           >
             <div className="flex gap-2">
               <input

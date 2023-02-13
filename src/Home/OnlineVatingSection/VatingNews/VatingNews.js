@@ -35,7 +35,7 @@ const VatingNews = () => {
           <BsArrowUpRightSquareFill className="text-red-600 mt-1" />
         </span>
       </Link>
-      <div className="mt-5 border bg-cyan-100">
+      <div className="mt-5 border bg-cyan-50">
         <Splide
           aria-label=""
           options={{
