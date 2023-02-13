@@ -1,5 +1,4 @@
 import React from "react";
-import { RxCalendar } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
 const HorizontalThreeImage = ({ data }) => {

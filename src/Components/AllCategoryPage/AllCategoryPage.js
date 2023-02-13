@@ -44,7 +44,7 @@ const AllCategoryPage = () => {
             <div className="grid grid-cols-1 ">
               {categoryNews &&
                 categoryNews
-                  ?.slice(7, 200)
+                  ?.slice(6, 200)
                   .map((data, i) => (
                     <AllCard data={data} key={data?._id} i={i} />
                   ))}
