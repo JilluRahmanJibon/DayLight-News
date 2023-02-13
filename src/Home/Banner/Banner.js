@@ -15,6 +15,13 @@ const Banner = () => {
         res.json()
       ),
   });
+  const { data: sideBanner } = useQuery({
+    queryKey: ["viralNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}viralNews`).then((res) =>
+        res.json()
+      ),
+  });
 
   return (
     <div>
@@ -49,36 +56,25 @@ const Banner = () => {
                     src={banner?.picture}
                     alt=""
                   />
-                  <div className=" absolute bottom-10 px-5 text-cyan-500  z-50">
+                  <div className=" absolute bottom-10 px-5 text-white z-50">
                     <div className="  ">
                       <Link
                         to={`/category/${banner?.category}`}
-                        className="font-bold py-1 mb-2 px-2 bg-red-600 hover:bg-red-700 text-white"
+                        className="font-bold pb-1 px-2 bg-red-600 hover:bg-red-700 text-white"
                       >
                         {banner?.category}
                       </Link>
                       <h3
                         title={banner?.title}
-                        className="sm:text-2xl mt-1 link-hover text-md text-white"
+                        className="sm:text-2xl link-hover  text-md "
                       >
                         {banner?.title?.length > 50
                           ? banner?.title?.slice(0, 50) + "..."
                           : banner?.title}
                       </h3>
-                      <div className="sm:flex hidden gap-2 items-center mt-3">
-                        <div className="flex items-center gap-1 font-bold py-1 justify-center px-2 bg-white text-red-500">
-                          <img
-                            className="w-4 h-4 rounded-xl"
-                            src={banner?.author?.author_img}
-                            alt=""
-                          />
-                          <button>{banner?.author?.author_name}</button>
-                        </div>
-                        <div className="flex items-center gap-1 font-bold py-1  px-2 bg-white text-red-500">
-                          <RxCalendar></RxCalendar>
-                          <button>{banner?.author?.published_date}</button>
-                        </div>
-                      </div>
+                      <p className="hidden sm:block">
+                        {banner?.description?.slice(0, 190) + "..."}
+                      </p>
                     </div>
                   </div>
                 </NavLink>
@@ -88,7 +84,7 @@ const Banner = () => {
         </div>
         <div className=" gap-1 grid grid-cols-1 md:grid-cols-2 h-full w-full">
           {isLoading && <SkeletonLoading cards={2} />}
-          {bannerData?.slice(-4)?.map((banner) => (
+          {sideBanner?.slice(-4)?.map((banner) => (
             <Link to={`/detail/${banner._id}`} key={banner._id}>
               <div className=" h-full border sm:border-none  relative overflow-hidden">
                 <img
@@ -96,34 +92,16 @@ const Banner = () => {
                   src={banner?.picture}
                   alt=""
                 />
-                <div className=" absolute bottom-2 pl-3 text-cyan-500  z-40">
+                <div className=" absolute bottom-1 pl-1 text-white  z-40">
                   <div className="  ">
-                    <Link
-                      to={`/category/${banner?.category}`}
-                      className="font-bold mb-2 px-2 bg-red-600 hover:bg-red-700 rounded-sm text-white"
-                    >
-                      {banner?.category}
-                    </Link>
-
-                    <h3 className="text-sm text-white link-hover   hover:underline mt-1 hero-overlay">
+                    <h3 className="text-md text-white link-hover font-semibold  hover:underline mt-1 hero-overlay">
                       {banner?.title?.length > 50
                         ? banner?.title?.slice(0, 50) + "..."
                         : banner?.title}
                     </h3>
-                    <div className="sm:flex hidden gap-2 items-center mt-3 text-xs flex-wrap">
-                      <div className="flex items-center gap-1 font-bold  py-1  px-2 bg-white text-red-500">
-                        <img
-                          className="w-4 h-4 rounded-xl"
-                          src={banner?.author?.author_img}
-                          alt=""
-                        />
-                        <button>{banner?.author?.author_name}</button>
-                      </div>
-                      <div className="flex items-center gap-1 font-bold py-1  px-2 bg-white text-red-500">
-                        <RxCalendar className=""></RxCalendar>
-                        <button>{banner?.author?.published_date}</button>
-                      </div>
-                    </div>
+                    <p className="hero-overlay text-sm">
+                      {banner?.description?.slice(0, 70) + "..."}
+                    </p>
                   </div>
                 </div>
               </div>

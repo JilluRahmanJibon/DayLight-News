@@ -6,22 +6,18 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import SpacialNews from "../../Components/SpacialNews/SpacialNews";
 import DonateNotUser from "../../Components/DonationPage/DonateNotUser";
-import { FaFacebook, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
 
-const Navbar = () =>
-{
+const Navbar = () => {
   const { user, logout, setSearchContent } = useContext(AuthContext);
 
-  const [ weather, setWeather ] = useState({});
+  const [weather, setWeather] = useState({});
   // weather
-  useEffect(() =>
-  {
+  useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&APPID=${ process.env.REACT_APP_Weather_API_KEY }`
+      `https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&APPID=${process.env.REACT_APP_Weather_API_KEY}`
     )
       .then((res) => res.json())
-      .then((result) =>
-      {
+      .then((result) => {
         setWeather(result);
       });
   }, []);
@@ -36,12 +32,12 @@ const Navbar = () =>
     day: "numeric",
   };
   const currentDate = date.toLocaleDateString("en-US", options);
-  
+
   // categories
   const { data: allCategory = [] } = useQuery({
-    queryKey: [ "categories" ],
+    queryKey: ["categories"],
     queryFn: () =>
-      fetch(`${ process.env.REACT_APP_API_URL }categories`).then((res) =>
+      fetch(`${process.env.REACT_APP_API_URL}categories`).then((res) =>
         res.json()
       ),
   });
@@ -69,7 +65,7 @@ const Navbar = () =>
               {user?.uid ? (
                 <Link
                   to="/Donate"
-                  className="bg-black px-5 py-1 text-white rounded-sm mr-5"
+                  className="bg-black px-2 sm:px-5 py-1 text-white rounded-sm mr-5"
                 >
                   Donate us
                 </Link>
@@ -81,15 +77,19 @@ const Navbar = () =>
                   Donate us
                 </label>
               )}
-              <h1>
-                {temp?.toFixed(0)}°c <span>Tempareture</span>{" "}
+              <h1 className="pr-1">
+                {temp?.toFixed(0)}°C{" "}
+                <span
+                  className="hidden sm:hide
+                "
+                >
+                  Tempareture
+                </span>{" "}
               </h1>
             </div>
           </div>
           <div className="max-w-[1440px] mx-auto items-center sm:flex-row flex flex-col justify-between">
-            <div>
-
-            </div>
+            <div></div>
 
             <div>
               <h1 className="text-xl select-none font-bold italic w-40 sm:w-52 md:w-72 h-8 sm:h-12">
@@ -111,7 +111,7 @@ const Navbar = () =>
       <section className="my-2 max-w-[1440px] mx-auto ">
         <div className="flex justify-between">
           <div>
-            <ul className=" gap-5 hidden lg:flex">
+            <ul className="gap-3 md:gap-5 hidden lg:flex">
               <li>
                 <NavLink
                   className="text-1xl hover:text-red-500 font-semibold"
@@ -120,16 +120,7 @@ const Navbar = () =>
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink className="text-1xl hover:text-red-500 font-semibold">
-                  News
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="text-1xl hover:text-red-500 font-semibold">
-                  Sports
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink className="text-1xl hover:text-red-500 font-semibold">
                   Pages
@@ -175,7 +166,7 @@ const Navbar = () =>
                     {categories?.map((category, i) => (
                       <li key={i} className="w-full">
                         <Link
-                          to={`/category/${ category }`}
+                          to={`/category/${category}`}
                           className="block py-1 px-2 hover:pl-8 ease-in-out duration-300 hover:text-white  my-1 hover:bg-red-500"
                         >
                           {category}
@@ -200,7 +191,7 @@ const Navbar = () =>
             <div>
               <input
                 onChange={(e) => setSearchContent(e.target.value)}
-                className="p-1 rounded-2xl pl-3  bg-[#f0f2f5] "
+                className="p-1 rounded-2xl pl-3 w-32 sm:w-full bg-[#f0f2f5] "
                 type="search"
                 placeholder="Search"
               />
@@ -215,7 +206,7 @@ const Navbar = () =>
                     >
                       log out
                     </button>
-                    <Link className="sm:px-2" to="/account">
+                    <Link className="px-2" to="/account">
                       Account
                     </Link>
                   </div>
