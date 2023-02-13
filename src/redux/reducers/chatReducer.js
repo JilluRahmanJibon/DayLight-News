@@ -1,6 +1,10 @@
-const chatReducer = (state = { chatUsers: [], loading: false, error: false }, action) => {
+import { SAVE_USER } from "../actionTypes/actionType";
+
+const initialState = { chatUsers: [], loading: false, error: false };
+
+const chatReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "SAVE_USER":
+        case SAVE_USER:
             return ({ ...state, chatUsers: [...state.chatUsers, action.data] });
         default:
             return state

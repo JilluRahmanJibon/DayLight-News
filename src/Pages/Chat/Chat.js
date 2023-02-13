@@ -9,7 +9,6 @@ import { io } from "socket.io-client";
 import { userChats } from '../../api/ChatRequests';
 
 const Chat = () => {
-
     const dispatch = useDispatch();
     const socket = useRef();
     const { user } = useSelector((state) => state.authReducer.authData);

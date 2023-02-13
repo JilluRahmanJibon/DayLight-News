@@ -9,28 +9,31 @@ import { CgDarkMode } from "react-icons/cg";
 import 'react-loading-skeleton/dist/skeleton.css'
 import { QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 import { DarkAndWhiteContext } from "./Contexts/AuthProvider/AuthProvider";
+import { Provider, useSelector } from "react-redux";
+import store from "./redux/store";
 
 
 
 const queryClient = new QueryClient()
-function App ()
-{
+function App() {
   const { setIsDarkMode, isDarkMode } = useContext(DarkAndWhiteContext)
-  const [ openIcons, setOpenIcons ] = useState(false);
-  const handlDarkAndWhiteMode = () =>
-  {
+  const [openIcons, setOpenIcons] = useState(false);
+  const handlDarkAndWhiteMode = () => {
 
     setIsDarkMode(!isDarkMode)
 
   }
 
+
   return (
 
-    <div className={`relative ${ isDarkMode ? 'bg-gray-900 text-gray-200' : ' bg-white' }`} >
+    <div className={`relative ${isDarkMode ? 'bg-gray-900 text-gray-200' : ' bg-white'}`} >
 
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </Provider>
 
       <div className="absolute top-1/3 sm:w-12 xl:right-12 lg:right-6 md:right-3 sm:right-2 right-1 overflow-hidden  ">
         <div className="block sm:hidden">

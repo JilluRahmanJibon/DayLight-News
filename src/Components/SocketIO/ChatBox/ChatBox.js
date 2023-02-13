@@ -4,7 +4,7 @@ import "./ChatBox.css";
 import { format } from "timeago.js";
 import InputEmoji from 'react-input-emoji'
 import { addMessage, getMessages } from '../../../api/MessageRequests';
-import { getUser } from '../../../api/auth';
+import { getUser } from '../../../api/UserRequests';
 
 const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
     const [userData, setUserData] = useState(null);
