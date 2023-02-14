@@ -8,7 +8,7 @@ const ReecntWorkForHomePageSlidebar = ({ data }) => {
   return (
     <Link
       to={`/detail/${_id}`}
-      className="flex  border  border-gray-300    justify-evenly lg:justify-start md:text-left  transition-all mb-1 mx-1 shadow overflow-hidden object-cover hover:ml-3"
+      className="flex  border  border-gray-300    lg:justify-start md:text-left  transition-all mb-1 mx-1 shadow overflow-hidden object-cover hover:ml-3"
     >
       <div className="">
         <img className="w-36 h-20 " src={picture} alt="" />

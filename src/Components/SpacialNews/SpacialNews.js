@@ -15,7 +15,7 @@ const SpacialNews = () => {
   }, []);
 
   return (
-    <div className="max-w-[1440px] mx-auto">
+    <div className="max-w-[1440px] mx-auto px-3 md:px-0">
       <div className="flex    max-w-[1440px]mx-auto">
         <div className="">
           <h1 className="text">Spacial News</h1>

@@ -123,9 +123,9 @@ const HomePageDivisionData = () => {
               </span>
             </label>
           </div>
-          <div className="p-2 ">
+          <div className="sm:p-2 mb-5">
             <img
-              className="rounded-lg  w-[300px] h-[400px] sm:w-[800px]  mx-auto xl:w-[300px] xl:h-[450px]"
+              className="rounded-sm  w-[300px] h-[400px] sm:w-auto  mx-auto xl:w-[300px] xl:h-[450px]"
               src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/mtn-data-bundle-advert-design-template-086b970e7957e55a44ea4f181feb5a4b_screen.jpg?ts=1637022062"
               alt=""
             />

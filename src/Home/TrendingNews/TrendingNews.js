@@ -57,7 +57,7 @@ const TrendingNews = () => {
                 <NavLink to={`/detail/${trending?._id}`}>
                   <div className="overflow-hidden">
                     <img
-                      className="w-full h-44 ease-in-out duration-500 transform hover:scale-125"
+                      className="w-full h-36 ease-in-out duration-500 transform hover:scale-125"
                       src={trending?.picture}
                       alt=""
                     />
@@ -86,7 +86,7 @@ const TrendingNews = () => {
                     </Link>
                     <p className="text-sm ">
                       {trending?.description?.slice(0, 70) + "..."}
-                      <span className="text-red-500">Read More</span>
+                      <span className="text-red-500 link-hover">Read More</span>
                     </p>
                   </div>
                 </NavLink>

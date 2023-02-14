@@ -54,13 +54,12 @@ const Navbar = () => {
             <div>
               <label
                 htmlFor="my-drawer"
-                className=" cursor-pointer drawer-button"
+                className=" cursor-pointer  drawer-button"
               >
                 {" "}
-                <AiOutlineBars />
+                <AiOutlineBars className="w-6 h-6 ml-3" />
               </label>
             </div>
-
             <div className="flex item-center">
               {user?.uid ? (
                 <Link
@@ -74,13 +73,13 @@ const Navbar = () => {
                   htmlFor="my-modal-3"
                   className="bg-black px-5 py-1 text-white rounded-sm mr-5"
                 >
-                  Donate us
+                  Donate
                 </label>
               )}
-              <h1 className="pr-1">
+              <h1 className="pr-3">
                 {temp?.toFixed(0)}°C{" "}
                 <span
-                  className="hidden sm:hide
+                  className="
                 "
                 >
                   Tempareture
@@ -187,11 +186,11 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="flex items-center">
-            <div>
+          <div className="flex items-center pr-3 ">
+            <div className="mr-5">
               <input
                 onChange={(e) => setSearchContent(e.target.value)}
-                className="p-1 rounded-2xl pl-3 w-32 sm:w-full bg-[#f0f2f5] "
+                className="p-1 rounded w-32 sm:w-full bg-[#f0f2f5] "
                 type="search"
                 placeholder="Search"
               />
@@ -200,14 +199,8 @@ const Navbar = () => {
               {user?.email ? (
                 <>
                   <div>
-                    <button
-                      className="p-1 bg-black text-white rounded-lg font-semibold mx-1"
-                      onClick={logout}
-                    >
-                      Log out
-                    </button>
                     <Link
-                      className="p-1 bg-gray-300 rounded-lg font-semibold"
+                      className="py-1 px-2 bg-gray-300 rounded-lg font-semibold"
                       to="/account"
                     >
                       Account

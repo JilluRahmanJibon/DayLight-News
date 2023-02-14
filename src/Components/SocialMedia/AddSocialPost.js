@@ -64,7 +64,7 @@ const AddSocialPost = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="space-y-6  w-full md:w-96 my-8  mx-auto "
+        className=" border shadow p-4 w-full md:w-96 my-8  mx-auto "
       >
         <div className="space-y-4">
           <div>
@@ -114,12 +114,12 @@ const AddSocialPost = () => {
             <div className="">
               <textarea
                 name="description"
-                placeholder="Description"
+                placeholder="Details"
                 className="h-24 border w-full"
               />
             </div>
           </div>
-          <div>
+          <div className="text-center ">
             <button className="btn">Create Post</button>
           </div>
         </div>

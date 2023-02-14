@@ -7,8 +7,8 @@ const LetestNewsCard = ({ news }) => {
   return (
     <section>
       <Link className="font-bold " to={`detail/${_id}`}>
-        <div className="h-80 shadow hover:shadow-2xl border  ease-in-out duration-300 border-gray-300">
-          <div className="overflow-hidden h-44">
+        <div className="h-80 mb-4 shadow hover:shadow-2xl border  ease-in-out duration-300 border-gray-300">
+          <div className="overflow-hidden h-36">
             <img
               className="transform ease-in-out duration-500 hover:scale-125 object-cover w-full  h-full"
               src={picture}
@@ -32,7 +32,7 @@ const LetestNewsCard = ({ news }) => {
               {title?.length > 22 ? title.slice(0, 30) + "..." : title}
             </h1>
             <p className="text-sm font-normal">
-              {description?.slice(0, 70) + "..."}
+              {description?.slice(0, 50) + "..."}
               <span className="text-red-500">Read More</span>
             </p>
           </div>

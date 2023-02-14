@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const RightSide4Card = ({ data }) => {
   const { picture, title, _id } = data;
   return (
-    <div className="mx-3 mb-3 w-full  transition-all xl:w-72 pb-4 ">
+    <div className="md:mx-3 mb-3 w-full  transition-all xl:w-72 pb-4 ">
       <Link
         to={`detail${_id}`}
         className="text-md hover:text-red-600 font-bold"

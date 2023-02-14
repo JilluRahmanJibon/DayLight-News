@@ -17,7 +17,7 @@ const LatestNews = ({ recent }) => {
           <p className="text-md link-hover  hover:text-red-600 font-semibold">
             {title.slice(0, 40)}
           </p>
-          <p className="text-sm">{description.slice(0, 60)}</p>
+          <p className="text-sm ">{description.slice(0, 60)}</p>
         </div>
       </div>
     </Link>

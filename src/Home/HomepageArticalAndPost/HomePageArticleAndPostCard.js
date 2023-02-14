@@ -11,7 +11,7 @@ const HomePageArticleAndPostCard = ({ data }) => {
     >
       <div className="overflow-hidden">
         <img
-          className="transition transform ease-in-out duration-500 hover:scale-125 object-cover w-full h-44"
+          className="transition transform ease-in-out duration-500 hover:scale-125 object-cover w-full h-36"
           src={picture}
           alt="/"
         />
@@ -36,7 +36,7 @@ const HomePageArticleAndPostCard = ({ data }) => {
             {title?.slice(0, 30) + "..."}
           </h3>
           <p className="text-sm">
-            {description?.slice(0, 70) + "..."}
+            {description?.slice(0, 50) + "..."}
             <span className="text-red-500 link-hover">Read More</span>
           </p>
         </div>
