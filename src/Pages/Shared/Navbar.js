@@ -6,6 +6,8 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import SpacialNews from "../../Components/SpacialNews/SpacialNews";
 import DonateNotUser from "../../Components/DonationPage/DonateNotUser";
+import { FaFacebook, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
+import CurrencyConvertor from "../../Home/CurrencyConvertor/CurrencyConvertor";
 
 const Navbar = () => {
   const { user, logout, setSearchContent } = useContext(AuthContext);
@@ -54,41 +56,38 @@ const Navbar = () => {
             <div>
               <label
                 htmlFor="my-drawer"
-                className=" cursor-pointer  drawer-button"
+                className=" cursor-pointer drawer-button"
               >
                 {" "}
-                <AiOutlineBars className="w-6 h-6 ml-3" />
+                <AiOutlineBars />
               </label>
             </div>
+
             <div className="flex item-center">
               {user?.uid ? (
                 <Link
                   to="/Donate"
-                  className="bg-black px-2 sm:px-5 py-1 text-white rounded-md mr-5"
+                  className="bg-black px-5 py-1 text-white rounded-sm mr-5"
                 >
-                  Donate
+                  Donate us
                 </Link>
               ) : (
                 <label
                   htmlFor="my-modal-3"
                   className="bg-black px-5 py-1 text-white rounded-sm mr-5"
                 >
-                  Donate
+                  Donate us
                 </label>
               )}
-              <h1 className="pr-3">
-                {temp?.toFixed(0)}°C{" "}
-                <span
-                  className="
-                "
-                >
-                  Tempareture
-                </span>{" "}
+              <h1>
+                {temp?.toFixed(0)}°c <span>Tempareture</span>{" "}
               </h1>
             </div>
           </div>
           <div className="max-w-[1440px] mx-auto items-center sm:flex-row flex flex-col justify-between">
-            <div></div>
+            <div>
+              <CurrencyConvertor />
+            </div>
 
             <div>
               <h1 className="text-xl select-none font-bold italic w-40 sm:w-52 md:w-72 h-8 sm:h-12">
@@ -110,7 +109,7 @@ const Navbar = () => {
       <section className="my-2 max-w-[1440px] mx-auto ">
         <div className="flex justify-between">
           <div>
-            <ul className="gap-3 md:gap-5 hidden lg:flex">
+            <ul className=" gap-5 hidden lg:flex">
               <li>
                 <NavLink
                   className="text-1xl hover:text-red-500 font-semibold"
@@ -119,12 +118,17 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
-
               <li>
                 <NavLink className="text-1xl hover:text-red-500 font-semibold">
-                  Pages
+                  News
                 </NavLink>
               </li>
+              <li>
+                <NavLink className="text-1xl hover:text-red-500 font-semibold">
+                  Sports
+                </NavLink>
+              </li>
+
               <li>
                 <NavLink
                   to="/socialMedia"
@@ -194,11 +198,11 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="flex items-center pr-3 ">
-            <div className="mr-5">
+          <div className="flex items-center">
+            <div>
               <input
                 onChange={(e) => setSearchContent(e.target.value)}
-                className="p-1 rounded w-32 sm:w-full bg-[#f0f2f5] "
+                className="p-1 rounded-2xl pl-3  bg-[#f0f2f5] "
                 type="search"
                 placeholder="Search"
               />
@@ -207,10 +211,13 @@ const Navbar = () => {
               {user?.email ? (
                 <>
                   <div>
-                    <Link
-                      className="py-1 px-2 bg-gray-300 rounded-lg font-semibold"
-                      to="/account"
+                    <button
+                      className="btn rounded-full btn-sm"
+                      onClick={logout}
                     >
+                      log out
+                    </button>
+                    <Link className="sm:px-2" to="/account">
                       Account
                     </Link>
                   </div>
