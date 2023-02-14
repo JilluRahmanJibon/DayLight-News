@@ -38,6 +38,7 @@ import Welcome from "../Pages/Welcome/Welcome";
 import PrivateRoute from "./PrivateRoute";
 import TranslationPage from "../Components/Translation/TranslationPage";
 import GadgetsProfile from "../Gadgets/GadgetsProfile";
+import GadgetPaymentForm from "../Gadgets/GadgetPaymentForm";
 import HomePageStoryAllImage from "../Home/HomePageStorySection/HomePageStoryAllImage";
 import LiveCryptoMarketData from "../Home/LiveCryptoMarketData/LiveCryptoMarketData";
 
@@ -60,6 +61,7 @@ export const router = createBrowserRouter([
       { path: "detail/:id", element: <CardDetailsPage /> },
       { path: "/category/:id", element: <AllCategoryPage /> },
       { path: "/gadgets/:id", element: <Gadgets /> },
+      { path: "/GadgetPaymentForm/gadget", element: <GadgetPaymentForm/> },
 
       { path: "/stockMarket", element: <LiveStockMarketData /> },
       { path: "/donate", element: <DonationPage /> },
