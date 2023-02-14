@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RxCalendar } from "react-icons/rx";
 import { useQuery } from "@tanstack/react-query";
 const SportsNews = () => {
+<<<<<<< HEAD
   const { data: sportsNews, isLoading } = useQuery({
     queryKey: ["sportsNews"],
     queryFn: () =>
@@ -10,6 +11,14 @@ const SportsNews = () => {
         res.json()
       ),
   });
+=======
+
+  const { data: sportsNews, isLoading } = useQuery({
+    queryKey: ['sportsNews'],
+    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}sportsNews`)
+      .then((res) => res.json())
+  })
+>>>>>>> e78ec21fabcec28fa18150d6339679ace8ef3614
 
   return (
     <div>

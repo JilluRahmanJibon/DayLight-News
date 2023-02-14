@@ -150,6 +150,14 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink
+                  to="/cryptoMarket"
+                  className="text-1xl hover:text-red-500 font-semibold"
+                >
+                  Crypto Currency Market
+                </NavLink>
+              </li>
+              <li>
                 <div className="dropdown dropdown-hover">
                   <NavLink
                     tabIndex={1}

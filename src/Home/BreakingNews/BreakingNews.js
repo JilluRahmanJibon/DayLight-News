@@ -36,7 +36,7 @@ const BreakingNews = () => {
             <Link
               key={breaking?._id}
               to={`/detail/${breaking?._id}`}
-              className=" h-32  w-96 flex border-2"
+              className=" h-32 hover:text-red-500 flex border-2"
             >
               <div className="overflow-hidden w-56 h-32">
                 <img

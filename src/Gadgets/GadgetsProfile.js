@@ -1,26 +1,51 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
-import { toast } from 'react-hot-toast';
-import { updateWriter } from '../api/services';
-import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
+import React, { useContext, useState, } from 'react';
 
-const GadgetsProfile = () =>
-{
+import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
+import GadgetPaymentForm from './GadgetPaymentForm';
+import GadgetProfileCard from './GadgetProfileCard';
+import GadgetsDashboardDeleteModal from './GadgetsDashboardDeleteModal';
+
+const GadgetsProfile = () => {
     const { user } = useContext(AuthContext);
-    const { data: orders, isLoading } = useQuery({
-        queryKey: [ 'orders', user?.email ],
-        queryFn: () => fetch(`${ process.env.REACT_APP_API_URL }orders?email=${ user?.email }`, {
-        })
+    const [storeDelete, setStoreDelete] = useState()
+    const [processPayment, setProcessPayment] = useState()
+
+    const { data: gadgets, refetch } = useQuery({
+        queryKey: ['gadgets'],
+        queryFn: () => fetch(`${process.env.REACT_APP_API_URL}gadgets/${user?.email}`)
             .then((res) => res.json())
     })
 
 
-    console.log(orders);
-
-
     return (
-        <div>
-            <h2>Gadgets profile</h2>
+        <div className='grid xl:grid-cols-3  lg:grid-cols-2 grid-cols-1 md:w-11/12 w-full mx-auto gap-4 md:mt-0 mt-8'>
+            {
+                gadgets?.map(gadget => <GadgetProfileCard
+                    key={gadget._id}
+                    gadget={gadget}
+                    refetch={refetch}
+                    setStoreDelete={setStoreDelete}
+                    setProcessPayment={setProcessPayment}
+                />)
+            }
+            {
+                storeDelete &&
+                <GadgetsDashboardDeleteModal
+                    refetch={refetch}
+                    storeDelete={storeDelete}
+                    setStoreDelete={setStoreDelete}
+
+                />
+            }
+            {
+                processPayment &&
+                <GadgetPaymentForm
+                    gadget={processPayment}
+                    
+                />
+
+            }
         </div>
     );
 };
