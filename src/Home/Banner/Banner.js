@@ -9,18 +9,20 @@ import { useQuery } from "@tanstack/react-query";
 import HomePageSnipper from "../HomePageStorySection/HomePageSnipper";
 
 const Banner = () => {
-
-  const [datas, setDatas] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    setIsLoading(true)
-    fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=364e71159b584d7699ae753d6f7f9c0c`)
-      .then(res => res.json())
-      .then(data => setDatas(data.articles.slice(0, 15)))
-    setIsLoading(false)
-  }, [])
-
+  const { data: bannerData, isLoading } = useQuery({
+    queryKey: ["bannerNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}bannerNews`).then((res) =>
+        res.json()
+      ),
+  });
+  const { data: sideBanner } = useQuery({
+    queryKey: ["viralNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}viralNews`).then((res) =>
+        res.json()
+      ),
+  });
 
   return (
     <div>
@@ -43,12 +45,11 @@ const Banner = () => {
             }}
           >
             {isLoading && <SkeletonLoading cards={6} />}
-            {datas.length ? datas?.map((banner) => (
-              <SplideSlide className="relative" key={banner?.title}>
+            {bannerData?.map((banner) => (
+              <SplideSlide className="relative" key={banner._id}>
                 <NavLink
                   id="RouterNavLink"
-                  to={`/liveNewsApi/${banner?.title
-                    .slice(0, 30)}`}
+                  to={`/detail/${banner._id}`}
                   className="w-full h-[full] gradient"
                 >
                   <img
@@ -79,39 +80,34 @@ const Banner = () => {
                   </div>
                 </NavLink>
               </SplideSlide>
-            )) : <SkeletonLoading />}
+            ))}
           </Splide>
         </div>
         <div className=" gap-1 grid grid-cols-1 md:grid-cols-2 h-full w-full">
           {isLoading && <SkeletonLoading cards={2} />}
-          {datas.length ? datas?.slice(11, 15,)?.map((banner) => (
-            <Link to={`/liveNewsApi/${banner?.title
-              .slice(0, 30)}`} key={banner._id}>
-              <div className=" h-full sm:border-none  relative overflow-hidden text-white ">
+          {sideBanner?.slice(-4)?.map((banner) => (
+            <Link to={`/detail/${banner._id}`} key={banner._id}>
+              <div className=" h-full border sm:border-none  relative overflow-hidden">
                 <img
                   className="w-[100%] lg:h-[241px]  md:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
-                  src={banner?.urlToImage}
+                  src={banner?.picture}
                   alt=""
                 />
-                <div className=" absolute bottom-10 px-5 text-white z-50">
+                <div className=" absolute bottom-1 pl-1 text-white  z-40">
                   <div className="  ">
-
-                    <h3
-                      title={banner?.title}
-                      className="sm:text-2xl link-hover  text-md "
-                    >
-                      {banner?.title?.length > 30
-                        ? banner?.title?.slice(0, 30) + "..."
+                    <h3 className="text-md text-white link-hover font-semibold  hover:underline mt-1 hero-overlay">
+                      {banner?.title?.length > 50
+                        ? banner?.title?.slice(0, 50) + "..."
                         : banner?.title}
                     </h3>
-                    <p className="hidden sm:block">
-                      {banner?.description?.slice(0, 40) + "..."}
+                    <p className="hero-overlay text-sm">
+                      {banner?.description?.slice(0, 70) + "..."}
                     </p>
                   </div>
                 </div>
               </div>
             </Link>
-          )) : <SkeletonLoading />}
+          ))}
         </div>
       </div>
     </div>

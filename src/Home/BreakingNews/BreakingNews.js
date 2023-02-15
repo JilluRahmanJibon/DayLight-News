@@ -5,9 +5,13 @@ import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 import { useQuery } from "@tanstack/react-query";
 import Marquee from "react-fast-marquee";
 const BreakingNews = () => {
-  const [datas, setDatas] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-
+  const { data: breakingNews, isLoading } = useQuery({
+    queryKey: ["breakingNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}breakingNews`).then((res) =>
+        res.json()
+      ),
+  });
 
   useEffect(() => {
     setIsLoading(true)
@@ -30,11 +34,10 @@ const BreakingNews = () => {
       <div>
         <Marquee pauseOnHover gradient={false} className="overflow-hidden"  >
           {isLoading && <SkeletonLoading cards={6} />}
-          {datas.length ? datas?.map((breaking) => (
-
-            <Link key={breaking?.title}
-              to={`/liveNewsApi/${breaking?.title
-                .slice(0, 30)}`}
+          {breakingNews?.map((breaking) => (
+            <Link
+              key={breaking?._id}
+              to={`/detail/${breaking?._id}`}
               className=" h-32 hover:text-red-500 flex border-2"
             >
               <div className="overflow-hidden w-40 h-32">
@@ -55,7 +58,7 @@ const BreakingNews = () => {
                 </div>
               </div>
             </Link>
-          )) : <SkeletonLoading />}
+          ))}
         </Marquee>
       </div>
     </div>

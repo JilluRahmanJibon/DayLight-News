@@ -22,7 +22,6 @@ const HomePageDivisionData = () => {
   //unique district
   const uniqueDistrict = [...new Set(datas?.map((data) => data?.district))];
 
-
   const handleUpdateDistrict = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -33,7 +32,8 @@ const HomePageDivisionData = () => {
       setCity({ district: district });
     }
     fetch(
-      `${process.env.REACT_APP_API_URL}district/${city?.district ? city?.district : "Dhaka"
+      `${process.env.REACT_APP_API_URL}district/${
+        city?.district ? city?.district : "Dhaka"
       }`
     )
       .then((res) => res.json())
