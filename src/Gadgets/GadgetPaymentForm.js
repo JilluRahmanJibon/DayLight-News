@@ -73,14 +73,13 @@ const GadgetPaymentForm = ({ gadget }) => {
                                         </div>
 
                                         <div className="col-span-full sm:col-span-2">
-                                            <p>
+                                            <p className='w-full rounded-md p-2 border hover:border-red-600 outline-none '>
                                                 price: {price}
                                             </p>
-                                            {/* <input type="text" required name="amount" defaultValue={gadget?.price} disabled placeholder="$$" className="w-full rounded-md p-2 border hover:border-red-600 outline-none " /> */}
+                                            
                                         </div>
                                         <div className="col-span-full sm:col-span-2">
-                                            <label className=" text-xl">ZIP / Postal</label>
-                                            <input type="text" required name="zipCode" placeholder="" className="w-full rounded-md p-2 border hover:border-red-600 outline-none " />
+                                            <input type="text" required name="zipCode" placeholder="ZIP / Postal" className="w-full rounded-md p-2 border hover:border-red-600 outline-none " />
                                         </div>
                                         <div>
                                             <select className="select border hover:border-red-600 w-full max-w-xs" name="currency">

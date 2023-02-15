@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
-import { useEffect } from 'react';
 import { useState } from 'react';
-import { RxCalendar } from 'react-icons/rx';
-import { Link } from 'react-router-dom';
 import "./gadgets.css"
 import { useQuery } from '@tanstack/react-query';
 import GadgetsCard from './GadgetsCard';
 import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
-import { set } from 'date-fns';
 import GadgetsModal from './GadgetsModal';
 
 const Gadgets = () => {
@@ -23,7 +19,6 @@ const Gadgets = () => {
         queryFn: () => fetch(`${process.env.REACT_APP_API_URL}gadgets`)
             .then((res) => res.json())
     })
-    // console.log(gadgets)
 
     const handleGadgetsBuy = () => {
         const gadgetsAllData = {
@@ -45,7 +40,6 @@ const Gadgets = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
                 setLoading(false);
                 setQuantity(1)
                 setPrice(500)

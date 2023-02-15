@@ -40,6 +40,7 @@ import TranslationPage from "../Components/Translation/TranslationPage";
 import GadgetsProfile from "../Gadgets/GadgetsProfile";
 import GadgetPaymentForm from "../Gadgets/GadgetPaymentForm";
 import HomePageStoryAllImage from "../Home/HomePageStorySection/HomePageStoryAllImage";
+import DonationModal from "../WebsiteDonationModal/DonationModal";
 export const router = createBrowserRouter([
   {
     path: "/",

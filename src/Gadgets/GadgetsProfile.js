@@ -42,7 +42,7 @@ const GadgetsProfile = () => {
                 processPayment &&
                 <GadgetPaymentForm
                     gadget={processPayment}
-                    
+
                 />
 
             }

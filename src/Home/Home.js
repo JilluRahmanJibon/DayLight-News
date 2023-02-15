@@ -16,9 +16,9 @@ import Voices from "./Voices/Voices";
 import ViralNews from "./ViralNews/ViralNews";
 import VideoSection from "./VideoSection/VideoSection";
 import News from "./News/News";
+import DonationModal from "../WebsiteDonationModal/DonationModal";
 
-const Home = () =>
-{
+const Home = () => {
   useTitle("Home");
   const { searchContent } = useContext(AuthContext);
 
@@ -29,6 +29,7 @@ const Home = () =>
       ) : (
         <>
           <Banner />
+          <DonationModal />
           <BreakingNews />
           <TrendingNews />
           <HomePageDivisionData />
@@ -39,7 +40,7 @@ const Home = () =>
           <HomePageStorySection />
           <VideoSection />
           <ViralNews />
-          <News/>
+          <News />
           <EnvironmentNews />
           <Voices />
         </>
