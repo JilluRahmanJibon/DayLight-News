@@ -18,7 +18,9 @@ const SocialMedia = () => {
   const { data: allSocialNews, refetch } = useQuery({
     queryKey: ["stories", user?.email],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_URL}socialNews`).then((res) => res.json()),
+      fetch(`${process.env.REACT_APP_API_URL}socialNews`).then((res) =>
+        res.json()
+      ),
   });
   const handelDelete = (e) => {
     console.log(e);
@@ -49,9 +51,9 @@ const SocialMedia = () => {
         >
           <div className="px-6 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
+              <div className="flex items-center ">
                 <img
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                   src="https://i.ibb.co/N2NPBn1/photo-1633332755192-727a05c4013d.jpg"
                   alt=""
                 />

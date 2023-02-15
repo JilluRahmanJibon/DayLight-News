@@ -1,8 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Drawer from "../Components/Drawer/Drawer";
 import SocialDrawer from "../Components/Drawer/SocialDrawer";
-import Footer from "../Pages/Shared/Footer";
 
 const SocialMediaLayout = () => {
   return (

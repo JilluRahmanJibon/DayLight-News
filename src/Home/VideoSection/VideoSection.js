@@ -30,24 +30,6 @@ const VideoSection = () => {
                     allowFullScreen={true}
                   ></iframe>
                 </div>
-                <div className="mt-3">
-                  <div className="flex gap-4">
-                    <div>
-                      <p className=" rounded-sm font-bold px-1 bg-red-200">
-                        {video.type}
-                      </p>
-                    </div>
-                    <div className="flex gap-2 items-center font-bold text-gray-400">
-                      <RxCalendar></RxCalendar>
-                      <p className=" font-bold text-gray-400">
-                        {video.author.date}
-                      </p>
-                    </div>
-                  </div>
-                  <h1 className="sm:text-md link-hover text-md font-bold mb-1">
-                    {video.title}
-                  </h1>
-                </div>
               </div>
             </div>
           ))}
@@ -56,7 +38,7 @@ const VideoSection = () => {
           {VideoPost?.slice(2, 3).map((video) => (
             <div key={video._id} className="  h-full">
               <div className="h-[100%]">
-                <div className="lg:h-[650px] h-[300px] mb-3">
+                <div className="lg:h-[593px] h-[300px] mb-3">
                   <iframe
                     className="rounded"
                     width="100%"
@@ -67,24 +49,6 @@ const VideoSection = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen={true}
                   ></iframe>
-                </div>
-                <div className="mt-3">
-                  <div className="flex gap-4">
-                    <div>
-                      <p className=" rounded-sm font-bold px-1 bg-red-200">
-                        {video.type}
-                      </p>
-                    </div>
-                    <div className="flex gap-2 items-center font-bold text-gray-400">
-                      <RxCalendar></RxCalendar>
-                      <p className=" font-bold text-gray-400">
-                        {video.author.date}
-                      </p>
-                    </div>
-                  </div>
-                  <h1 className="sm:text-md link-hover text-md font-bold mb-1">
-                    {video.title}
-                  </h1>
                 </div>
               </div>
             </div>
@@ -105,24 +69,6 @@ const VideoSection = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen={true}
                   ></iframe>
-                </div>
-                <div className="mt-3">
-                  <div className="flex gap-4">
-                    <div>
-                      <p className=" rounded-sm font-bold px-1 bg-red-200">
-                        {video.type}
-                      </p>
-                    </div>
-                    <div className="flex gap-2 items-center font-bold text-gray-400">
-                      <RxCalendar></RxCalendar>
-                      <p className=" font-bold text-gray-400">
-                        {video.author.date}
-                      </p>
-                    </div>
-                  </div>
-                  <h1 className="sm:text-md link-hover text-md font-bold mb-1">
-                    {video.title}
-                  </h1>
                 </div>
               </div>
             </div>

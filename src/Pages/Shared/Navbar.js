@@ -53,34 +53,34 @@ const Navbar = () => {
       <section className=" pb-5">
         <div className="">
           <div className="max-w-[1440px] mx-auto flex  justify-between py-1">
-            <div>
+            <div className="ml-3">
               <label
                 htmlFor="my-drawer"
                 className=" cursor-pointer drawer-button"
               >
                 {" "}
-                <AiOutlineBars />
+                <AiOutlineBars className="w-6 h-6" />
               </label>
             </div>
 
-            <div className="flex item-center">
+            <div className="flex item-center mr-3">
               {user?.uid ? (
                 <Link
                   to="/Donate"
                   className="bg-black px-5 py-1 text-white rounded-sm mr-5"
                 >
-                  Donate us
+                  Donate
                 </Link>
               ) : (
                 <label
                   htmlFor="my-modal-3"
                   className="bg-black px-5 py-1 text-white rounded-sm mr-5"
                 >
-                  Donate us
+                  Donate
                 </label>
               )}
               <h1>
-                {temp?.toFixed(0)}°c <span>Tempareture</span>{" "}
+                {temp?.toFixed(0)}°C <span>Tempareture</span>{" "}
               </h1>
             </div>
           </div>
@@ -99,7 +99,7 @@ const Navbar = () => {
                 </Link>
               </h1>
             </div>
-            <div>
+            <div className="mr-3">
               <h1 className="text-sm font-semibold">{currentDate}</h1>
             </div>
           </div>
@@ -207,17 +207,14 @@ const Navbar = () => {
                 placeholder="Search"
               />
             </div>
-            <div>
+            <div className="mr-3">
               {user?.email ? (
                 <>
-                  <div>
-                    <button
-                      className="btn rounded-full btn-sm"
-                      onClick={logout}
+                  <div className="ml-3">
+                    <Link
+                      className=" bg-black font-bold text-white rounded-md p-1"
+                      to="/account"
                     >
-                      log out
-                    </button>
-                    <Link className="sm:px-2" to="/account">
                       Account
                     </Link>
                   </div>

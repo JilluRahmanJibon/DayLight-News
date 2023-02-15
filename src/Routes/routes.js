@@ -1,7 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import InternetionalTorism from "../Components/InternetionalTorism/InternetionalTorism";
 import ErrorPage from "../ErrorPage/ErrorPage";
-import BannerDetails from "../Home/BannerDetails/BannerDetails";
 import EntertainmentNews from "../Home/EntertainmentNews/EntertainmentNews/EntertainmentNews";
 import AllCategoryPage from "../Components/AllCategoryPage/AllCategoryPage";
 import CardDetailsPage from "../Components/CardDetailsPage/CardDetailsPage";
@@ -12,7 +10,6 @@ import AddSocialPost from "../Components/SocialMedia/AddSocialPost";
 import MyNews from "../Components/SocialMedia/MyNews";
 import SocialMedia from "../Components/SocialMedia/SocialMedia";
 import Gadgets from "../Gadgets/Gadgets";
-import GadgetsDetails from "../Gadgets/GadgetsDetails";
 import Home from "../Home/Home";
 import Domestic from "../Home/HomePageLetestNews/Demestic";
 import Health from "../Home/HomePageLetestNews/Health";
@@ -41,6 +38,7 @@ import GadgetsProfile from "../Gadgets/GadgetsProfile";
 import GadgetPaymentForm from "../Gadgets/GadgetPaymentForm";
 import HomePageStoryAllImage from "../Home/HomePageStorySection/HomePageStoryAllImage";
 import LiveCryptoMarketData from "../Home/LiveCryptoMarketData/LiveCryptoMarketData";
+import SocialVideos from "../Components/SocialMedia/SocialVideos";
 
 export const router = createBrowserRouter([
   {
@@ -84,6 +82,7 @@ export const router = createBrowserRouter([
         children: [{ path: "/socialMedia", element: <SocialMedia /> }],
       },
       { path: "/addSocialPost", element: <AddSocialPost /> },
+      { path: "/socialVideos", element: <SocialVideos></SocialVideos> },
       { path: "/mySocialNews", element: <MyNews /> },
       { path: "/cryptoMarket", element: <LiveCryptoMarketData /> },
       {

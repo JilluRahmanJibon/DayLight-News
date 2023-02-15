@@ -58,7 +58,7 @@ const VatingNews = () => {
                 <h1 className="text-md font-bold block sm:hidden">
                   {voteNews?.title?.slice(0, 30)}
                 </h1>
-                <p className="text-gray-600 hidden sm:block">
+                <p className=" hidden sm:block">
                   {voteNews?.description?.slice(0, 220)}
                 </p>
               </div>

@@ -61,7 +61,7 @@ const CurrencyConvertor = () => {
   }
 
   return (
-    <div>
+    <div className="ml-3">
       <h1 className="text-2xl font-bold pb-2">Currency Convertor</h1>
       <div className="flex items-center">
         <CurrencyRow
