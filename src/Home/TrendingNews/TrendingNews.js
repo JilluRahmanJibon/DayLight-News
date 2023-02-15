@@ -59,7 +59,7 @@ const TrendingNews = () => {
           {datas?.slice(40, 60).map((trending) => (
             <SplideSlide key={trending?._id}>
               <div className=" h-80 shadow border border-gray-300 ease-in-out duration-300    ">
-                <NavLink to={`/detail/${trending?._id}`}>
+                <NavLink to={`/liveNewsApi/${trending?.description}`}>
                   <div className="overflow-hidden">
                     <img
                       className="w-full h-44 ease-in-out duration-500 transform hover:scale-125"
@@ -69,7 +69,7 @@ const TrendingNews = () => {
                   </div>
                   <div className="mx-2">
                     <div className="flex gap-2 my-2 items-center flex-wrap  justify-between">
-                      <Link to={`/category/${trending?.category}`}>
+                      <Link >
                         <button className="px-2 bg-red-600 hover:bg-red-700 rounded-sm text-white font-semibold">
                           {trending?.category}
                         </button>
@@ -82,7 +82,8 @@ const TrendingNews = () => {
                       </div>
                     </div>{" "}
                     <Link
-                      to={`detail/${trending?._id}`}
+                      to={`/liveNewsApi/${trending?.title
+                        .slice(0, 30)}`}
                       className="text-md link-hover  font-bold"
                     >
                       {trending?.title?.length > 49

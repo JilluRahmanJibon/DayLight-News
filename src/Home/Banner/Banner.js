@@ -23,6 +23,8 @@ const Banner = () => {
     setIsLoading(false)
   }, [])
 
+  console.log(datas)
+
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1  my-4 sm:my-10 md:my-10">
@@ -49,7 +51,8 @@ const Banner = () => {
               <SplideSlide className="relative" key={banner._id}>
                 <NavLink
                   id="RouterNavLink"
-                  to={`/detail/${banner._id}`}
+                  to={`/liveNewsApi/${banner?.title
+                    .slice(0, 30)}`}
                   className="w-full h-[full] gradient"
                 >
                   <img
@@ -86,7 +89,8 @@ const Banner = () => {
         <div className=" gap-1 grid grid-cols-1 md:grid-cols-2 h-full w-full">
           {isLoading && <SkeletonLoading cards={2} />}
           {datas?.slice(11, 15,)?.map((banner) => (
-            <Link to={`/detail/${banner._id}`} key={banner._id}>
+            <Link to={`/liveNewsApi/${banner?.title
+              .slice(0, 30)}`} key={banner._id}>
               <div className=" h-full sm:border-none  relative overflow-hidden text-white gradient1">
                 <img
                   className="w-[100%] lg:h-[241px]  md:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
