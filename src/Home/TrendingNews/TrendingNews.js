@@ -6,13 +6,18 @@ import { Link, NavLink } from "react-router-dom";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 
 const TrendingNews = () => {
-  const { data: trendingNews, isLoading } = useQuery({
-    queryKey: ["trendingNews"],
-    queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_URL}trendingNews`).then((res) =>
-        res.json()
-      ),
-  });
+  const [datas, setDatas] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+
+  useEffect(() => {
+    setIsLoading(true)
+    fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=364e71159b584d7699ae753d6f7f9c0c`)
+      .then(res => res.json())
+      .then(data => setDatas(data.articles.slice(36, 46)))
+    setIsLoading(false)
+  }, [])
+
 
   return (
     <div className=" mb-4 sm:mb-10 ">
@@ -51,20 +56,20 @@ const TrendingNews = () => {
           }}
         >
           {isLoading && <SkeletonLoading cards={6} />}
-          {trendingNews?.map((trending) => (
-            <SplideSlide key={trending?._id}>
+          {datas.length ? datas?.map((trending) => (
+            <SplideSlide key={trending?.title}>
               <div className=" h-80 shadow border border-gray-300 ease-in-out duration-300    ">
-                <NavLink to={`/detail/${trending?._id}`}>
+                <NavLink to={`/liveNewsApi/${trending?.description}`}>
                   <div className="overflow-hidden">
                     <img
-                      className="w-full h-36 ease-in-out duration-500 transform hover:scale-125"
-                      src={trending?.picture}
+                      className="w-full h-44 ease-in-out duration-500 transform hover:scale-125"
+                      src={trending?.urlToImage}
                       alt=""
                     />
                   </div>
                   <div className="mx-2">
                     <div className="flex gap-2 my-2 items-center flex-wrap  justify-between">
-                      <Link to={`/category/${trending?.category}`}>
+                      <Link >
                         <button className="px-2 bg-red-600 hover:bg-red-700 rounded-sm text-white font-semibold">
                           {trending?.category}
                         </button>
@@ -77,7 +82,8 @@ const TrendingNews = () => {
                       </div>
                     </div>{" "}
                     <Link
-                      to={`detail/${trending?._id}`}
+                      to={`/liveNewsApi/${trending?.title
+                        .slice(0, 30)}`}
                       className="text-md link-hover  font-bold"
                     >
                       {trending?.title?.length > 49
@@ -92,7 +98,7 @@ const TrendingNews = () => {
                 </NavLink>
               </div>
             </SplideSlide>
-          ))}
+          )) : <SkeletonLoading />}
         </Splide>
       </div>
     </div>

@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "./Banner.css";
 import { Link, NavLink } from "react-router-dom";
-import { RxCalendar } from "react-icons/rx";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 import { useQuery } from "@tanstack/react-query";
-import HomePageSnipper from "../HomePageStorySection/HomePageSnipper";
 
 const Banner = () => {
   const { data: bannerData, isLoading } = useQuery({
@@ -54,7 +52,7 @@ const Banner = () => {
                 >
                   <img
                     className="h-full w-full object-cover"
-                    src={banner?.urlToImage}
+                    src={banner?.picture}
                     alt=""
                   />
                   <div className=" absolute bottom-10 px-5 text-white z-50">
@@ -63,7 +61,7 @@ const Banner = () => {
                         to={`/category/${banner?.category}`}
                         className="font-bold pb-1 px-2 bg-red-600 hover:bg-red-700 text-white"
                       >
-                        {banner?.source?.name}
+                        {banner?.category}
                       </Link>
                       <h3
                         title={banner?.title}
