@@ -14,7 +14,7 @@ const TrendingNews = () => {
     setIsLoading(true)
     fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=364e71159b584d7699ae753d6f7f9c0c`)
       .then(res => res.json())
-      .then(data => setDatas(data.articles))
+      .then(data => setDatas(data.articles.slice(36, 46)))
     setIsLoading(false)
   }, [])
 
@@ -56,7 +56,7 @@ const TrendingNews = () => {
           }}
         >
           {isLoading && <SkeletonLoading cards={6} />}
-          {datas?.slice(40, 60).map((trending) => (
+          {datas.length ? datas?.map((trending) => (
             <SplideSlide key={trending?._id}>
               <div className=" h-80 shadow border border-gray-300 ease-in-out duration-300    ">
                 <NavLink to={`/liveNewsApi/${trending?.description}`}>
@@ -98,7 +98,7 @@ const TrendingNews = () => {
                 </NavLink>
               </div>
             </SplideSlide>
-          ))}
+          )) : <SkeletonLoading />}
         </Splide>
       </div>
     </div>

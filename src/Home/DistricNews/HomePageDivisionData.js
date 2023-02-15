@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 import DistricModal from "./DistricModal";
 import DivisionHorizontalData from "./DivisionHorizontalData ";
 import DivisionTitleData from "./DivisionTitleData ";
@@ -21,7 +22,7 @@ const HomePageDivisionData = () => {
   //unique district
   const uniqueDistrict = [...new Set(datas?.map((data) => data?.district))];
 
-  console.log();
+  console.log(datas);
 
   const handleUpdateDistrict = (e) => {
     e.preventDefault();
@@ -33,8 +34,7 @@ const HomePageDivisionData = () => {
       setCity({ district: district });
     }
     fetch(
-      `${process.env.REACT_APP_API_URL}district/${
-        city?.district ? city?.district : "Dhaka"
+      `${process.env.REACT_APP_API_URL}district/${city?.district ? city?.district : "Dhaka"
       }`
     )
       .then((res) => res.json())
@@ -67,30 +67,30 @@ const HomePageDivisionData = () => {
             <div>
               {city?.district ? (
                 <>
-                  {districtData?.slice(1, 2)?.map((data) => (
+                  {districtData.length ? districtData?.slice(1, 2)?.map((data) => (
                     <HomePageDivisionSingleCard data={data} key={data?._id} />
-                  ))}
+                  )) : <SkeletonLoading cards={3} />}
                 </>
               ) : (
                 <>
-                  {preData.slice(1, 2).map((data) => (
+                  {preData.length ? preData.slice(1, 2).map((data) => (
                     <HomePageDivisionSingleCard data={data} key={data?._id} />
-                  ))}
+                  )) : <SkeletonLoading cards={3} />}
                 </>
               )}
             </div>
             <div className="p-5 ">
               {city?.district ? (
                 <>
-                  {districtData?.slice(0, 6).map((data) => (
+                  {districtData.length ? districtData?.slice(0, 6).map((data) => (
                     <DivisionTitleData data={data} key={data?._id} />
-                  ))}
+                  )) : <SkeletonLoading cards={3} />}
                 </>
               ) : (
                 <>
-                  {preData?.slice(0, 6).map((data) => (
+                  {preData.length ? preData?.slice(0, 6).map((data) => (
                     <DivisionTitleData data={data} key={data?._id} />
-                  ))}
+                  )) : <SkeletonLoading cards={3} />}
                 </>
               )}
             </div>
@@ -98,15 +98,15 @@ const HomePageDivisionData = () => {
           <div className=" gap-5 mt-2  pb-5 grid grid-flow-cols-1 md:grid-cols-2 sm-flex xl:grid-cols-4 lg:grid-cols-3">
             {city?.district ? (
               <>
-                {districtData?.slice(1, 5).map((data) => (
+                {districtData.length ? districtData?.slice(1, 5).map((data) => (
                   <DivisionHorizontalData data={data} key={data?._id} />
-                ))}
+                )) : <SkeletonLoading cards={3} />}
               </>
             ) : (
               <>
-                {datas?.slice(1, 5).map((data) => (
+                {datas.length ? datas?.slice(1, 5).map((data) => (
                   <DivisionHorizontalData data={data} key={data?._id} />
-                ))}
+                )) : <SkeletonLoading cards={3} />}
               </>
             )}
           </div>

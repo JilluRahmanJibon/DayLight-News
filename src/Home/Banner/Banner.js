@@ -6,20 +6,18 @@ import { Link, NavLink } from "react-router-dom";
 import { RxCalendar } from "react-icons/rx";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 import { useQuery } from "@tanstack/react-query";
+import HomePageSnipper from "../HomePageStorySection/HomePageSnipper";
 
 const Banner = () => {
 
   const [datas, setDatas] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-
-
-
   useEffect(() => {
     setIsLoading(true)
     fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=364e71159b584d7699ae753d6f7f9c0c`)
       .then(res => res.json())
-      .then(data => setDatas(data.articles))
+      .then(data => setDatas(data.articles.slice(0, 15)))
     setIsLoading(false)
   }, [])
 
@@ -46,8 +44,7 @@ const Banner = () => {
             }}
           >
             {isLoading && <SkeletonLoading cards={6} />}
-            {datas?.slice(0, 10).map((banner) => (
-
+            {datas.length ? datas?.map((banner) => (
               <SplideSlide className="relative" key={banner._id}>
                 <NavLink
                   id="RouterNavLink"
@@ -83,12 +80,12 @@ const Banner = () => {
                   </div>
                 </NavLink>
               </SplideSlide>
-            ))}
+            )) : <SkeletonLoading />}
           </Splide>
         </div>
         <div className=" gap-1 grid grid-cols-1 md:grid-cols-2 h-full w-full">
           {isLoading && <SkeletonLoading cards={2} />}
-          {datas?.slice(11, 15,)?.map((banner) => (
+          {datas.length ? datas?.slice(11, 15,)?.map((banner) => (
             <Link to={`/liveNewsApi/${banner?.title
               .slice(0, 30)}`} key={banner._id}>
               <div className=" h-full sm:border-none  relative overflow-hidden text-white gradient1">
@@ -115,7 +112,7 @@ const Banner = () => {
                 </div>
               </div>
             </Link>
-          ))}
+          )) : <SkeletonLoading />}
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const BreakingNews = () => {
     setIsLoading(true)
     fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=364e71159b584d7699ae753d6f7f9c0c`)
       .then(res => res.json())
-      .then(data => setDatas(data.articles))
+      .then(data => setDatas(data.articles.slice(15, 35)))
     setIsLoading(false)
   }, [])
 
@@ -30,7 +30,7 @@ const BreakingNews = () => {
       <div>
         <Marquee pauseOnHover className="overflow-hidden"  >
           {isLoading && <SkeletonLoading cards={6} />}
-          {datas?.slice(15, 35).map((breaking) => (
+          {datas.length ? datas?.map((breaking) => (
 
             <Link key={breaking?._id}
               to={`/liveNewsApi/${breaking?.title
@@ -55,7 +55,7 @@ const BreakingNews = () => {
                 </div>
               </div>
             </Link>
-          ))}
+          )) : <SkeletonLoading />}
         </Marquee>
       </div>
     </div>
