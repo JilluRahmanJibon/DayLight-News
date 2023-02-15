@@ -57,7 +57,7 @@ const TrendingNews = () => {
         >
           {isLoading && <SkeletonLoading cards={6} />}
           {datas.length ? datas?.map((trending) => (
-            <SplideSlide key={trending?._id}>
+            <SplideSlide key={trending?.title}>
               <div className=" h-80 shadow border border-gray-300 ease-in-out duration-300    ">
                 <NavLink to={`/liveNewsApi/${trending?.description}`}>
                   <div className="overflow-hidden">

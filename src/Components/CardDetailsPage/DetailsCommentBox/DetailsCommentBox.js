@@ -6,24 +6,21 @@ import { addComment } from "../../../api/services";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import AllComment from "./AllComment";
 
-const DetailsCommentBox = ({ detail, singleNewsComment, refetch }) =>
-{
+const DetailsCommentBox = ({ detail, singleNewsComment, refetch }) => {
 
   const { picture } = detail;
   const { user } = useContext(AuthContext);
-  const [ loading, setLoading ] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
 
 
-  const handleCommentBox = (e) =>
-  {
+  const handleCommentBox = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const message = form.message.value;
-    if (!message)
-    {
+    if (!message) {
       return alert('Please write a message!')
     }
     const commentData = {
@@ -37,8 +34,7 @@ const DetailsCommentBox = ({ detail, singleNewsComment, refetch }) =>
       date: format(new Date(), "PP"),
     };
 
-    addComment(commentData).then((data) =>
-    {
+    addComment(commentData).then((data) => {
       toast.success("Comment Successfuly !");
       refetch()
       e.target.reset();
@@ -51,20 +47,20 @@ const DetailsCommentBox = ({ detail, singleNewsComment, refetch }) =>
     <div className="text-center w-full lg:w-[700px] mx-auto py-10 ">
       <h1 className="text-2xl text-red-500 ">.. Leave a comment ..</h1>
       <form onSubmit={handleCommentBox}>
-        <div className="flex items-center  gap-6">
+        <div className="flex items-center gap-6 ">
           <div className="w-full  sm:w-[300px]">
-            <p className="text-left text-gray-500 py-1">Full Name*</p>
+            <p className=" text-gray-500 py-1">Full Name*</p>
             <input
-              className="w-full input input-bordered h-10"
+              className="w-full border input-bordered h-10 p-1 rounded"
               type="text"
               name="name"
               defaultValue={user?.displayName}
             />
           </div>
           <div className="w-full sm:w-[300px]">
-            <p className="text-left text-gray-500 py-1">Email*</p>
+            <p className=" text-gray-500 py-1">Email*</p>
             <input
-              className="w-full input input-bordered h-10"
+              className=" border input-bordered w-full h-10 p-1 rounded"
               type="email"
               name="email"
               defaultValue={user?.email}

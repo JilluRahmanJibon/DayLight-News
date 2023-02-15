@@ -22,7 +22,6 @@ const HomePageDivisionData = () => {
   //unique district
   const uniqueDistrict = [...new Set(datas?.map((data) => data?.district))];
 
-  console.log(datas);
 
   const handleUpdateDistrict = (e) => {
     e.preventDefault();

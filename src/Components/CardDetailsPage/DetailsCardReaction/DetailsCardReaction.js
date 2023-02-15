@@ -17,7 +17,6 @@ const DetailsCardReaction = ({ detail, reactions, reCall }) => {
     const data = {
         smileEmoji, frownEmoji, angryEmoji, sunglasEmoji, naturalEmoji
     }
-    console.log(reactions);
     const updateReactionFN = () => {
         fetch(`${process.env.REACT_APP_API_URL}reactions?id=${detail?._id}`, {
             method: 'PUT', headers: {

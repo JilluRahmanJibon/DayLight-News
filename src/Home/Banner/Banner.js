@@ -21,7 +21,6 @@ const Banner = () => {
     setIsLoading(false)
   }, [])
 
-  console.log(datas)
 
   return (
     <div>
@@ -45,7 +44,7 @@ const Banner = () => {
           >
             {isLoading && <SkeletonLoading cards={6} />}
             {datas.length ? datas?.map((banner) => (
-              <SplideSlide className="relative" key={banner._id}>
+              <SplideSlide className="relative" key={banner?.title}>
                 <NavLink
                   id="RouterNavLink"
                   to={`/liveNewsApi/${banner?.title
@@ -88,7 +87,7 @@ const Banner = () => {
           {datas.length ? datas?.slice(11, 15,)?.map((banner) => (
             <Link to={`/liveNewsApi/${banner?.title
               .slice(0, 30)}`} key={banner._id}>
-              <div className=" h-full sm:border-none  relative overflow-hidden text-white gradient1">
+              <div className=" h-full sm:border-none  relative overflow-hidden text-white ">
                 <img
                   className="w-[100%] lg:h-[241px]  md:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
                   src={banner?.urlToImage}

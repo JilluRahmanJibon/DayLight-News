@@ -32,7 +32,7 @@ const BreakingNews = () => {
           {isLoading && <SkeletonLoading cards={6} />}
           {datas.length ? datas?.map((breaking) => (
 
-            <Link key={breaking?._id}
+            <Link key={breaking?.title}
               to={`/liveNewsApi/${breaking?.title
                 .slice(0, 30)}`}
               className=" h-32 hover:text-red-500 flex border-2"
