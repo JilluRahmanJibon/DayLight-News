@@ -28,7 +28,7 @@ const Home = () => {
         <SearchData />
       ) : (
         <>
-          {/* <Banner />
+          <Banner />
           <BreakingNews />
           <TrendingNews />
           <HomePageDivisionData />
@@ -41,13 +41,12 @@ const Home = () => {
           <ViralNews />
           <News />
           <EnvironmentNews />
-          <Voices /> */}
-          <WorldinPictures/>
+          <Voices />
+          <WorldinPictures />
         </>
       )}
     </div>
   );
-
 };
 
 export default Home;
