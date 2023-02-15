@@ -1,25 +1,17 @@
 import React from "react";
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-  FaWhatsapp,
-  FaYoutube,
-} from "react-icons/fa";
 import { RxCalendar } from "react-icons/rx";
-import { BsFacebook } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 
 const ViralNews = () => {
   const { data: viralNews, isLoading } = useQuery({
-    queryKey: ['viralNews'],
-    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}viralNews`)
-      .then((res) => res.json())
-  })
-
+    queryKey: ["viralNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}viralNews`).then((res) =>
+        res.json()
+      ),
+  });
 
   return (
     <div className="mb-4 sm:my-10 md:my-16">
@@ -48,7 +40,9 @@ const ViralNews = () => {
                     />
                   </div>
                   <div className="mx-2 w-72 h-32">
-                    <h4 className="font-semibold text-red-400">{viral?.name}</h4>
+                    <h4 className="font-semibold text-red-400">
+                      {viral?.name}
+                    </h4>
                     <h3 className="sm:text-md link-hover  text-md font-bold mb-1">
                       {viral?.title}
                     </h3>
@@ -88,7 +82,9 @@ const ViralNews = () => {
                     />
                   </div>
                   <div className="mx-2 w-72 h-32">
-                    <h4 className="font-semibold text-red-400">{viral?.name}</h4>
+                    <h4 className="font-semibold text-red-400">
+                      {viral?.name}
+                    </h4>
                     <h3 className="sm:text-md link-hover  text-md font-bold mb-1">
                       {viral?.title}
                     </h3>
@@ -121,19 +117,16 @@ const ViralNews = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen={true}
-
             ></iframe>
-
           </div>
           <div>
             <div className="text-center py-3  font-bold border border-gray-200 dark:border-gray-700   mb-3">
               <h1>JOIN US</h1>
             </div>
-
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

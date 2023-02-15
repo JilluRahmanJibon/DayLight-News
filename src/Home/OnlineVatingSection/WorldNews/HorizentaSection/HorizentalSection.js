@@ -2,18 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HorizentalSection = ({ data }) => {
-  const { picture, title, _id } = data;
+  const { picture, description, title, _id } = data;
   return (
-    <div className=" mb-3 w-full  transition-all hover:border border border-gray-200 dark:border-gray-700   hover:border-gray-200  ">
-      <Link to={`detail/${_id}`} className="text-md font-bold hover:text-red-600 ">
-        <div className="overflow-hidden xl:h-20">
+    <div className="h-44 mb-3 w-full  transition-all  border  border-gray-300     ">
+      <Link to={`detail/${_id}`} className="   ">
+        <div className="overflow-hidden h-20 sm:h-24">
           <img
-            className="w-full h-60 ease-in-out duration-500 transform hover:scale-125 object-cover"
+            className="w-full h-full ease-in-out duration-500 transform hover:scale-125 object-cover"
             src={picture}
             alt=""
           />
         </div>
-        <h1 className="link-hover">{title?.slice(0, 30)}</h1>
+        <div className="ml-1">
+          <h1 className="link-hover text-md  font-bold">
+            {title?.slice(0, 30)}
+          </h1>
+          <p className="text-sm block lg:hidden font-normal ">
+            {description.slice(0, 30) + "..."}
+            <span className="text-red-500 link-hover">Read More</span>
+          </p>
+        </div>
       </Link>
     </div>
   );

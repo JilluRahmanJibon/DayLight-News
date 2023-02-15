@@ -8,7 +8,8 @@ const DetailsCard = ({
   reCall,
   reactions,
   refetch,
-  singleNewsComment, isLoading
+  singleNewsComment,
+  isLoading,
 }) => {
   const { picture, title, category, description, author } = detail;
 
@@ -61,11 +62,13 @@ const DetailsCard = ({
               <h1>{author?.published_date}</h1>
             </div>
           </div>
-          {!isLoading && <DetailsCardReaction
-            reCall={reCall}
-            reactions={reactions}
-            detail={detail}
-          />}
+          {!isLoading && (
+            <DetailsCardReaction
+              reCall={reCall}
+              reactions={reactions}
+              detail={detail}
+            />
+          )}
         </div>
         <div className=" ">
           <DetailsCommentBox

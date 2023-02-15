@@ -6,11 +6,12 @@ import { useQuery } from "@tanstack/react-query";
 import Marquee from "react-fast-marquee";
 const BreakingNews = () => {
   const { data: breakingNews, isLoading } = useQuery({
-    queryKey: ['breakingNews'],
-    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}breakingNews`)
-      .then((res) => res.json())
-  })
-
+    queryKey: ["breakingNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}breakingNews`).then((res) =>
+        res.json()
+      ),
+  });
 
   // console.log(breakingNews)
 
@@ -27,8 +28,8 @@ const BreakingNews = () => {
         <Marquee className="overflow-hidden" speed={2}>
           {isLoading && <SkeletonLoading cards={6} />}
           {breakingNews?.map((breaking) => (
-
-            <Link key={breaking?._id}
+            <Link
+              key={breaking?._id}
               to={`/detail/${breaking?._id}`}
               className=" h-32 hover:text-red-500 flex border-2"
             >
@@ -50,7 +51,6 @@ const BreakingNews = () => {
                 </div>
               </div>
             </Link>
-
           ))}
         </Marquee>
       </div>

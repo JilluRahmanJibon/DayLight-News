@@ -61,7 +61,6 @@ const Navbar = () => {
                 {" "}
                 <AiOutlineBars />
               </label>
-
             </div>
 
             <div className="flex item-center">
@@ -155,7 +154,10 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/cryptoMarket" className="text-1xl hover:text-red-500 font-semibold">
+                <NavLink
+                  to="/cryptoMarket"
+                  className="text-1xl hover:text-red-500 font-semibold"
+                >
                   Crypto Currency Market
                 </NavLink>
               </li>
