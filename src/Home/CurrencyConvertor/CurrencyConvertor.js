@@ -13,7 +13,7 @@ const CurrencyConvertor = () => {
     // console.log(exchangeRate)
 
     var myHeaders = new Headers();
-    myHeaders.append("apikey", "6jQG8cIhZv1DdEhVn3zczhyvKj3MQ24v");
+    myHeaders.append("apikey", "6jQG8cIhZv1DdEhVn3zczhyvKj3MQ24v&&");
 
 
     let toAmount, fromAmount
@@ -25,35 +25,35 @@ const CurrencyConvertor = () => {
         fromAmount = amount / exchangeRate
     }
 
-    useEffect(() => {
-        axios.get('https://api.apilayer.com/fixer/latest?base=USD&apikey=6jQG8cIhZv1DdEhVn3zczhyvKj3MQ24v')
-            .then(response => {
-                const firstCurrency = Object.keys(response.data.rates)[12]
-                const secundCurrency = Object.keys(response.data.rates)[150]
-                setRates([response.base, ...Object.keys(response.data.rates)]);
-                setFromCurrency(secundCurrency)
-                setToCurrency(firstCurrency)
-                setExchangeRate(response.data.rates[firstCurrency])
-                // console.log(response)
-            })
-    }, []);
+    // useEffect(() => {
+    //     axios.get('https://api.apilayer.com/fixer/latest?base=USD&apikey=6jQG8cIhZv1DdEhVn3zczhyvKj3MQ24v')
+    //         .then(response => {
+    //             const firstCurrency = Object.keys(response.data.rates)[12]
+    //             const secundCurrency = Object.keys(response.data.rates)[150]
+    //             setRates([response.base, ...Object.keys(response.data.rates)]);
+    //             setFromCurrency(secundCurrency)
+    //             setToCurrency(firstCurrency)
+    //             setExchangeRate(response.data.rates[firstCurrency])
+    //             // console.log(response)
+    //         })
+    // }, []);
 
-    useEffect(() => {
-        let requestOptions = {
-            method: 'GET',
-            redirect: 'follow',
-            headers: myHeaders
-        };
-        if (fromCurrency != null && toCurrency != null) {
-            fetch(`https://api.apilayer.com/exchangerates_data/latest?symbols=${toCurrency}&base=${fromCurrency}`, requestOptions)
-                .then(res => res.json())
-                .then(data => setExchangeRate(data.rates[toCurrency]))
-                .catch(error => console.log('error', error));
-        }
+    // useEffect(() => {
+    //     let requestOptions = {
+    //         method: 'GET',
+    //         redirect: 'follow',
+    //         headers: myHeaders
+    //     };
+    //     if (fromCurrency != null && toCurrency != null) {
+    //         fetch(`https://api.apilayer.com/exchangerates_data/latest?symbols=${toCurrency}&base=${fromCurrency}`, requestOptions)
+    //             .then(res => res.json())
+    //             .then(data => setExchangeRate(data.rates[toCurrency]))
+    //             .catch(error => console.log('error', error));
+    //     }
 
 
 
-    }, [fromCurrency, toCurrency]);
+    // }, [fromCurrency, toCurrency]);
 
 
 
