@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DivisionHorizontalData = ({ data }) =>
-{
-  const {  picture, title, _id } = data;
+const DivisionHorizontalData = ({ data }) => {
+  const { picture, title, _id } = data;
   return (
-    <Link to={`/detail/${ _id }`} className="w-full ">
-      <img className="md:full w-full md:h-[175px] object-cover" src={picture} alt="" />
-      <h1 className="bg-slate-800 rounded-b-lg text-white p-2 text-sm">
+    <Link
+      to={`/detail/${_id}`}
+      className="w-full"
+      title="Read Full Description"
+    >
+      <img
+        className="md:full w-full md:h-[175px] object-cover"
+        src={picture}
+        alt=""
+      />
+      <h1 className="bg-slate-800  text-white p-2 text-sm">
         {title.slice(0, 30) + "..."}
       </h1>
     </Link>

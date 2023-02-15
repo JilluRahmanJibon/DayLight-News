@@ -3,45 +3,38 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
-const AddSocialPost = () =>
-{
+const AddSocialPost = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [ files, setFiles ] = useState([]);
+  const [files, setFiles] = useState([]);
   // const [selectedImage, setSelectedImage] = useState();
 
-  const handleRemove = (index) =>
-  {
+  const handleRemove = (index) => {
     setFiles(files.filter((file, i) => i !== index));
   };
-  const handleDrop = (event) =>
-  {
+  const handleDrop = (event) => {
     event.preventDefault();
     setFiles(Array.from(event.dataTransfer.files));
   };
-  const handleDragOver = (event) =>
-  {
+  const handleDragOver = (event) => {
     event.preventDefault();
   };
-  const handleSubmit = (event) =>
-  {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const image = files[ 0 ];
+    const image = files[0];
     console.log(image);
     const imageHostKey = process.env.REACT_APP_Imgbb_API_KEY;
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${ imageHostKey }`;
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
-      .then((imageData) =>
-      {
+      .then((imageData) => {
         console.log(imageData);
-        if (imageData.success)
-        {
+        if (imageData.success) {
           const socialNews = {
             title: event.target.title.value,
             image: imageData.data.display_url,
@@ -50,7 +43,7 @@ const AddSocialPost = () =>
             name: user?.displayName,
           };
 
-          fetch(`${ process.env.REACT_APP_API_URL }addSocialNews`, {
+          fetch(`${process.env.REACT_APP_API_URL}addSocialNews`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -58,8 +51,7 @@ const AddSocialPost = () =>
             body: JSON.stringify(socialNews),
           })
             .then((res) => res.json())
-            .then((data) =>
-            {
+            .then((data) => {
               toast.success("Post Added Successfully");
               navigate("/socialMedia");
             });
@@ -72,7 +64,7 @@ const AddSocialPost = () =>
     <div>
       <form
         onSubmit={handleSubmit}
-        className="space-y-6  w-full md:w-96 my-8  mx-auto "
+        className=" border shadow p-4 w-full md:w-96 my-8  mx-auto "
       >
         <div className="space-y-4">
           <div>
@@ -122,12 +114,12 @@ const AddSocialPost = () =>
             <div className="">
               <textarea
                 name="description"
-                placeholder="Description"
+                placeholder="Details"
                 className="h-24 border w-full"
               />
             </div>
           </div>
-          <div>
+          <div className="text-center ">
             <button className="btn">Create Post</button>
           </div>
         </div>

@@ -16,15 +16,14 @@ const SocialDrawer = () => {
         <div>
           <ul className=" gap-3 flex-col font-bold text-xl">
             <li className="w-full ">
-              <Link className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 ">
+              <Link
+                to="/socialProfile"
+                className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 "
+              >
                 Profile
               </Link>
             </li>
-            <li className="w-full ">
-              <Link className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 ">
-                News Feed
-              </Link>
-            </li>
+
             <li className="w-full ">
               <Link
                 to="/mySocialNews"
@@ -39,11 +38,7 @@ const SocialDrawer = () => {
                 Followers
               </Link>
             </li>
-            <li className="w-full ">
-              <Link className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 ">
-                Group
-              </Link>
-            </li>
+
             <li className="w-full ">
               <Link className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 ">
                 Live Chat
@@ -57,7 +52,10 @@ const SocialDrawer = () => {
             </li>
 
             <li className="w-full ">
-              <Link className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 ">
+              <Link
+                to="/gadgets"
+                className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 "
+              >
                 Marketplace
               </Link>
             </li>

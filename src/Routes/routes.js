@@ -38,7 +38,10 @@ import Welcome from "../Pages/Welcome/Welcome";
 import PrivateRoute from "./PrivateRoute";
 import TranslationPage from "../Components/Translation/TranslationPage";
 import GadgetsProfile from "../Gadgets/GadgetsProfile";
+import GadgetPaymentForm from "../Gadgets/GadgetPaymentForm";
 import HomePageStoryAllImage from "../Home/HomePageStorySection/HomePageStoryAllImage";
+import LiveCryptoMarketData from "../Home/LiveCryptoMarketData/LiveCryptoMarketData";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +61,7 @@ export const router = createBrowserRouter([
       { path: "detail/:id", element: <CardDetailsPage /> },
       { path: "/category/:id", element: <AllCategoryPage /> },
       { path: "/gadgets/:id", element: <Gadgets /> },
+      { path: "/GadgetPaymentForm/gadget", element: <GadgetPaymentForm /> },
 
       { path: "/stockMarket", element: <LiveStockMarketData /> },
       { path: "/donate", element: <DonationPage /> },
@@ -77,11 +81,11 @@ export const router = createBrowserRouter([
             <SocialMediaLayout></SocialMediaLayout>
           </PrivateRoute>
         ),
-        children: [ { path: "/socialMedia", element: <SocialMedia /> } ],
+        children: [{ path: "/socialMedia", element: <SocialMedia /> }],
       },
       { path: "/addSocialPost", element: <AddSocialPost /> },
       { path: "/mySocialNews", element: <MyNews /> },
-
+      { path: "/cryptoMarket", element: <LiveCryptoMarketData /> },
       {
         path: "/gadgets",
         element: <Gadgets />,

@@ -8,9 +8,9 @@ const DetailsCard = ({
   reCall,
   reactions,
   refetch,
-  singleNewsComment, isLoading
-}) =>
-{
+  singleNewsComment,
+  isLoading,
+}) => {
   const { picture, title, category, description, author } = detail;
 
   return (
@@ -20,7 +20,7 @@ const DetailsCard = ({
           <img className="w-full lg:h-[500px]" src={picture} alt="" />
           <div className=" hero-overlay absolute top-0">
             <Link
-              to={`/category/${ category }`}
+              to={`/category/${category}`}
               className="absolute top-0 right-0 bg-red-700 py-1 px-5 text-white font-semibold"
             >
               {category}
@@ -62,11 +62,13 @@ const DetailsCard = ({
               <h1>{author?.published_date}</h1>
             </div>
           </div>
-          {!isLoading && <DetailsCardReaction
-            reCall={reCall}
-            reactions={reactions}
-            detail={detail}
-          />}
+          {!isLoading && (
+            <DetailsCardReaction
+              reCall={reCall}
+              reactions={reactions}
+              detail={detail}
+            />
+          )}
         </div>
         <div className=" ">
           <DetailsCommentBox

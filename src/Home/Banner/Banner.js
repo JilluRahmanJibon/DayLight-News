@@ -7,33 +7,34 @@ import { RxCalendar } from "react-icons/rx";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 import { useQuery } from "@tanstack/react-query";
 
-const Banner = () =>
-{
-
+const Banner = () => {
   const { data: bannerData, isLoading } = useQuery({
-    queryKey: [ 'bannerNews' ],
-    queryFn: () => fetch(`${ process.env.REACT_APP_API_URL }bannerNews`)
-      .then((res) => res.json())
-  })
-
-
+    queryKey: ["bannerNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}bannerNews`).then((res) =>
+        res.json()
+      ),
+  });
+  const { data: sideBanner } = useQuery({
+    queryKey: ["viralNews"],
+    queryFn: () =>
+      fetch(`${process.env.REACT_APP_API_URL}viralNews`).then((res) =>
+        res.json()
+      ),
+  });
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-1  my-4 sm:my-10 md:my-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-1  my-4 sm:my-10 md:my-10">
         <div className=" ">
           <Splide
             aria-label=""
             options={{
               autoplay: true,
-              height: "65vh",
-
+              height: "486px",
               breakpoints: {
-                1500: {
-                  height: "60vh",
-                },
-                1024: {
-                  height: "40vh",
+                500: {
+                  height: "330px",
                 },
               },
               rewind: true,
@@ -45,45 +46,35 @@ const Banner = () =>
             {isLoading && <SkeletonLoading cards={6} />}
             {bannerData?.map((banner) => (
               <SplideSlide className="relative" key={banner._id}>
-                <NavLink id="RouterNavLink"
-                  to={`/detail/${ banner._id }`}
-                  className="w-full h-[100%] gradient"
+                <NavLink
+                  id="RouterNavLink"
+                  to={`/detail/${banner._id}`}
+                  className="w-full h-[full] gradient"
                 >
                   <img
                     className="h-full w-full object-cover"
                     src={banner?.picture}
                     alt=""
                   />
-                  <div className=" absolute bottom-10 px-5 text-cyan-500  z-50">
+                  <div className=" absolute bottom-10 px-5 text-white z-50">
                     <div className="  ">
                       <Link
-                        to={`/category/${ banner?.category }`}
-                        className="font-bold py-1 mb-2 px-2 bg-red-600 hover:bg-red-700 text-white"
+                        to={`/category/${banner?.category}`}
+                        className="font-bold pb-1 px-2 bg-red-600 hover:bg-red-700 text-white"
                       >
                         {banner?.category}
                       </Link>
                       <h3
                         title={banner?.title}
-                        className="sm:text-2xl mt-1 link-hover text-md text-white"
+                        className="sm:text-2xl link-hover  text-md "
                       >
                         {banner?.title?.length > 50
                           ? banner?.title?.slice(0, 50) + "..."
                           : banner?.title}
                       </h3>
-                      <div className="sm:flex hidden gap-2 items-center mt-3">
-                        <div className="flex items-center gap-1 font-bold py-1 justify-center px-2 bg-white text-red-500">
-                          <img
-                            className="w-4 h-4 rounded-xl"
-                            src={banner?.author?.author_img}
-                            alt=""
-                          />
-                          <button>{banner?.author?.author_name}</button>
-                        </div>
-                        <div className="flex items-center gap-1 font-bold py-1  px-2 bg-white text-red-500">
-                          <RxCalendar></RxCalendar>
-                          <button>{banner?.author?.published_date}</button>
-                        </div>
-                      </div>
+                      <p className="hidden sm:block">
+                        {banner?.description?.slice(0, 190) + "..."}
+                      </p>
                     </div>
                   </div>
                 </NavLink>
@@ -91,45 +82,26 @@ const Banner = () =>
             ))}
           </Splide>
         </div>
-        <div className=" gap-1 grid grid-cols-1 sm:grid-cols-2 h-full w-full">
+        <div className=" gap-1 grid grid-cols-1 md:grid-cols-2 h-full w-full">
           {isLoading && <SkeletonLoading cards={2} />}
-          {bannerData?.slice(-4)?.map((banner) => (
-            <Link to={`/detail/${ banner._id }`} key={banner._id}>
-
+          {sideBanner?.slice(-4)?.map((banner) => (
+            <Link to={`/detail/${banner._id}`} key={banner._id}>
               <div className=" h-full border sm:border-none  relative overflow-hidden">
                 <img
-                  className="w-[100%] xl:h-[252px] lg:h-[200px] md:h-[180px] sm:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
+                  className="w-[100%] lg:h-[241px]  md:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
                   src={banner?.picture}
                   alt=""
                 />
-                <div className=" absolute bottom-2 pl-3 text-cyan-500  z-40">
+                <div className=" absolute bottom-1 pl-1 text-white  z-40">
                   <div className="  ">
-                    <Link
-                      to={`/category/${ banner?.category }`}
-                      className="font-bold mb-2 px-2 bg-red-600 hover:bg-red-700 rounded-sm text-white"
-                    >
-                      {banner?.category}
-                    </Link>
-
-                    <h3 className="text-sm text-white link-hover   hover:underline mt-1 hero-overlay">
+                    <h3 className="text-md text-white link-hover font-semibold  hover:underline mt-1 hero-overlay">
                       {banner?.title?.length > 50
                         ? banner?.title?.slice(0, 50) + "..."
                         : banner?.title}
                     </h3>
-                    <div className="sm:flex hidden gap-2 items-center mt-3 text-xs flex-wrap">
-                      <div className="flex items-center gap-1 font-bold  py-1  px-2 bg-white text-red-500">
-                        <img
-                          className="w-4 h-4 rounded-xl"
-                          src={banner?.author?.author_img}
-                          alt=""
-                        />
-                        <button>{banner?.author?.author_name}</button>
-                      </div>
-                      <div className="flex items-center gap-1 font-bold py-1  px-2 bg-white text-red-500">
-                        <RxCalendar className=""></RxCalendar>
-                        <button>{banner?.author?.published_date}</button>
-                      </div>
-                    </div>
+                    <p className="hero-overlay text-sm">
+                      {banner?.description?.slice(0, 70) + "..."}
+                    </p>
                   </div>
                 </div>
               </div>
