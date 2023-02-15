@@ -28,7 +28,7 @@ const BreakingNews = () => {
       </div>
 
       <div>
-        <Marquee pauseOnHover className="overflow-hidden"  >
+        <Marquee pauseOnHover gradient={false} className="overflow-hidden"  >
           {isLoading && <SkeletonLoading cards={6} />}
           {datas.length ? datas?.map((breaking) => (
 
