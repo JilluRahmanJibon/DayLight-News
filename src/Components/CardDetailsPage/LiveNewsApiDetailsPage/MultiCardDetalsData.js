@@ -6,16 +6,16 @@ const MultiCardDetalsData = ({ allAuth }) => {
     return (
         <div>
 
-
             <div className='pt-10'>
-                <h1 className='text-4xl font-bold'>{allAuth?.title}</h1>
+                <hr />
+                <h1 className='text-xl lg:text-4xl font-bold pt-2'>{allAuth?.title}</h1>
                 <div className='flex items-center py-2 '>
                     <BsStopwatch className='text-gray-400 m-2 text-2xl  ' />
                     <h1 className='text-lg text-gray-400'>10 hour ago</h1>
                 </div>
                 <div className='flex items-center gap-4 '>
                     <FaShareAlt className='bg-black m-2 text-6xl p-2 text-white' />
-                    <h1 className='text-4xl font-semibold'>{allAuth?.source?.name}</h1>
+                    <h1 className='text-xl lg:text-4xl font-semibold'>{allAuth?.source?.name}</h1>
                 </div>
                 <div>
                     <img src={allAuth?.urlToImage
@@ -34,7 +34,7 @@ const MultiCardDetalsData = ({ allAuth }) => {
                     }</p>
                 </div>
                 <div>
-                    <h1 className='text-4xl font-semibold'>{allAuth?.allAuth?.name}</h1>
+                    <h1 className='text-xl lg:text-4xl font-semibold'>{allAuth?.allAuth?.name}</h1>
                 </div>
             </div>
         </div>

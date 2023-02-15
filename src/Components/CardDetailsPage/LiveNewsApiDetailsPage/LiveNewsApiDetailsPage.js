@@ -55,7 +55,7 @@ const LiveNewsApiDetailsPage = () => {
                         </>
                     </div>
                 </div>
-                <div className='w-[600px] '>
+                <div className='w-[600px] hidden lg:block'>
                     {
                         datas.length ? datas.map(multyData => <TotalCardDetalsData multyData={multyData} key={multyData?._id} />) : <h1>someting wrong</h1>
                     }
