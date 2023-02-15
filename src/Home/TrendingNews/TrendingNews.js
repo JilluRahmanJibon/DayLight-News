@@ -1,16 +1,22 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RxCalendar } from "react-icons/rx";
 import { Link, NavLink } from "react-router-dom";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 
 const TrendingNews = () => {
-  const { data: trendingNews, isLoading } = useQuery({
-    queryKey: ['trendingNews'],
-    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}trendingNews`)
-      .then((res) => res.json())
-  })
+  const [datas, setDatas] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+
+  useEffect(() => {
+    setIsLoading(true)
+    fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=364e71159b584d7699ae753d6f7f9c0c`)
+      .then(res => res.json())
+      .then(data => setDatas(data.articles))
+    setIsLoading(false)
+  }, [])
 
 
   return (
@@ -45,7 +51,7 @@ const TrendingNews = () => {
           }}
         >
           {isLoading && <SkeletonLoading cards={6} />}
-          {trendingNews?.map((trending) => (
+          {datas?.slice(40, 60).map((trending) => (
             <SplideSlide key={trending?._id}>
 
               <div className=" h-80 shadow hover:text-red-500 hover:shadow-2xl border   ease-in-out duration-300 hover:border-gray-200 dark:border-gray-700   ">
@@ -53,7 +59,7 @@ const TrendingNews = () => {
                   <div className="overflow-hidden">
                     <img
                       className="w-full h-44 ease-in-out duration-500 transform hover:scale-125"
-                      src={trending?.picture}
+                      src={trending?.urlToImage}
                       alt=""
                     />
                   </div>

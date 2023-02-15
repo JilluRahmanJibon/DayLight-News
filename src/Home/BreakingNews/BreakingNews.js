@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BiTime } from "react-icons/bi";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 import { useQuery } from "@tanstack/react-query";
 import Marquee from "react-fast-marquee";
 const BreakingNews = () => {
-  const { data: breakingNews, isLoading } = useQuery({
-    queryKey: ['breakingNews'],
-    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}breakingNews`)
-      .then((res) => res.json())
-  })
+  const [datas, setDatas] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
 
-  // console.log(breakingNews)
+  useEffect(() => {
+    setIsLoading(true)
+    fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=364e71159b584d7699ae753d6f7f9c0c`)
+      .then(res => res.json())
+      .then(data => setDatas(data.articles))
+    setIsLoading(false)
+  }, [])
+
 
   return (
     <div className="mb-4 sm:mb-10">
@@ -24,9 +28,9 @@ const BreakingNews = () => {
       </div>
 
       <div>
-        <Marquee className="overflow-hidden" >
+        <Marquee pauseOnHover className="overflow-hidden"  >
           {isLoading && <SkeletonLoading cards={6} />}
-          {breakingNews?.map((breaking) => (
+          {datas?.slice(15, 35).map((breaking) => (
 
             <Link key={breaking?._id}
               to={`/detail/${breaking?._id}`}
@@ -35,7 +39,7 @@ const BreakingNews = () => {
               <div className="overflow-hidden w-40 h-32">
                 <img
                   className="w-full h-full ease-in-out duration-500 transform hover:scale-125"
-                  src={breaking?.picture}
+                  src={breaking?.urlToImage}
                   alt=""
                 />
               </div>

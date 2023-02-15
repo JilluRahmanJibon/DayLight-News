@@ -89,23 +89,27 @@ const Banner = () => {
         </div>
         <div className=" gap-1 grid grid-cols-1 md:grid-cols-2 h-full w-full">
           {isLoading && <SkeletonLoading cards={2} />}
-          {datas?.slice(-4)?.map((banner) => (
+          {datas?.slice(11, 15,)?.map((banner) => (
             <Link to={`/detail/${banner._id}`} key={banner._id}>
-              <div className=" h-full border sm:border-none  relative overflow-hidden">
+              <div className=" h-full sm:border-none  relative overflow-hidden text-white gradient1">
                 <img
                   className="w-[100%] lg:h-[241px]  md:h-[200px] h-[230px] object-cover ease-in-out duration-500 transform hover:scale-125 "
                   src={banner?.urlToImage}
                   alt=""
                 />
-                <div className=" absolute bottom-1 pl-1 text-white  z-40">
+                <div className=" absolute bottom-10 px-5 text-white z-50">
                   <div className="  ">
-                    <h3 className="text-md text-white link-hover font-semibold  hover:underline mt-1 hero-overlay">
-                      {banner?.title?.length > 50
-                        ? banner?.title?.slice(0, 50) + "..."
+
+                    <h3
+                      title={banner?.title}
+                      className="sm:text-2xl link-hover  text-md "
+                    >
+                      {banner?.title?.length > 30
+                        ? banner?.title?.slice(0, 30) + "..."
                         : banner?.title}
                     </h3>
-                    <p className="hero-overlay text-sm">
-                      {banner?.description?.slice(0, 70) + "..."}
+                    <p className="hidden sm:block">
+                      {banner?.description?.slice(0, 40) + "..."}
                     </p>
                   </div>
                 </div>
