@@ -29,7 +29,7 @@ const Home = () => {
       ) : (
         <>
           <Banner />
-          <DonationModal />
+          {/* <DonationModal /> */}
           <BreakingNews />
           <TrendingNews />
           <HomePageDivisionData />
