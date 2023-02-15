@@ -7,11 +7,11 @@ const HomePageArticleAndPostCard = ({ data }) => {
   return (
     <Link
       to={`/detail/${_id}`}
-      className=" h-80 transition-all hover:text-red-500  overflow-hidden shadow border border-gray-200 dark:border-gray-700   hover:shadow-2xl mb-4"
+      className=" h-80 transition-all   overflow-hidden shadow border  border-gray-300 hover:shadow-2xl mb-4"
     >
       <div className="overflow-hidden">
         <img
-          className="transition transform ease-in-out duration-500 hover:scale-125 object-cover w-full h-44"
+          className="transition transform ease-in-out duration-500 hover:scale-125 object-cover w-full h-36"
           src={picture}
           alt="/"
         />
@@ -24,19 +24,19 @@ const HomePageArticleAndPostCard = ({ data }) => {
           >
             {category}
           </Link>
-          <div className="flex items-center gap-1 ">
+          <div className="flex items-center text-slate-400 font-bold justify-between gap-1">
             <RxCalendar></RxCalendar>
-            <p className="text-[14px] text-slate-400">
-              {author?.published_date}
+            <p className="text-[14px] ">
+              {author?.published_date?.slice(0, 10)}
             </p>
           </div>
         </div>
         <div className=" mx-2">
-          <h3 className="text-md sm:text-xl link-hover font-bold">
-            {title?.slice(0, 20) + "..."}
+          <h3 className="text-md link-hover font-bold">
+            {title?.slice(0, 30) + "..."}
           </h3>
-          <p className="dark:text-white">
-            {description?.slice(0, 40) + "..."}
+          <p className="text-sm">
+            {description?.slice(0, 50) + "..."}
             <span className="text-red-500 link-hover">Read More</span>
           </p>
         </div>

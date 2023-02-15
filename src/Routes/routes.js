@@ -59,9 +59,10 @@ export const router = createBrowserRouter([
         ],
       },
       { path: "detail/:id", element: <CardDetailsPage /> },
+      { path: "/liveNewsApi/:image", element: <CardDetailsPage /> },
       { path: "/category/:id", element: <AllCategoryPage /> },
       { path: "/gadgets/:id", element: <Gadgets /> },
-      { path: "/GadgetPaymentForm/gadget", element: <GadgetPaymentForm/> },
+      { path: "/GadgetPaymentForm/gadget", element: <GadgetPaymentForm /> },
 
       { path: "/stockMarket", element: <LiveStockMarketData /> },
       { path: "/donate", element: <DonationPage /> },

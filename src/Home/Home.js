@@ -16,6 +16,7 @@ import Voices from "./Voices/Voices";
 import ViralNews from "./ViralNews/ViralNews";
 import VideoSection from "./VideoSection/VideoSection";
 import News from "./News/News";
+import WorldinPictures from "./WorldinPictures/WorldinPictures";
 
 const Home = () => {
   useTitle("Home");
@@ -41,11 +42,11 @@ const Home = () => {
           <News />
           <EnvironmentNews />
           <Voices />
+          <WorldinPictures />
         </>
       )}
     </div>
   );
-
 };
 
 export default Home;

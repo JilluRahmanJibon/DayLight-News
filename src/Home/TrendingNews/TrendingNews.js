@@ -37,24 +37,28 @@ const TrendingNews = () => {
             gap: "1rem",
             rewind: true,
             perPage: 4,
+            perMove: 2,
             breakpoints: {
               1280: {
                 perPage: 3,
               },
               1024: {
                 perPage: 2,
+                perMove: 1,
+              },
+              640: {
+                perPage: 1,
+                perMove: 1,
               },
             },
             arrows: true,
             pagination: false,
-            perMove: 2,
           }}
         >
           {isLoading && <SkeletonLoading cards={6} />}
           {datas?.slice(40, 60).map((trending) => (
             <SplideSlide key={trending?._id}>
-
-              <div className=" h-80 shadow hover:text-red-500 hover:shadow-2xl border   ease-in-out duration-300 hover:border-gray-200 dark:border-gray-700   ">
+              <div className=" h-80 shadow border border-gray-300 ease-in-out duration-300    ">
                 <NavLink to={`/detail/${trending?._id}`}>
                   <div className="overflow-hidden">
                     <img
@@ -64,7 +68,7 @@ const TrendingNews = () => {
                     />
                   </div>
                   <div className="mx-2">
-                    <div className="flex gap-2 my-2 items-center flex-wrap justify-between">
+                    <div className="flex gap-2 my-2 items-center flex-wrap  justify-between">
                       <Link to={`/category/${trending?.category}`}>
                         <button className="px-2 bg-red-600 hover:bg-red-700 rounded-sm text-white font-semibold">
                           {trending?.category}
@@ -76,13 +80,19 @@ const TrendingNews = () => {
                           {trending?.author?.published_date}
                         </p>
                       </div>
-                    </div>
-                    {" "}
-                    <Link to={`detail/${trending?._id}`} className="sm:text-xl text-md link-hover  font-bold">
+                    </div>{" "}
+                    <Link
+                      to={`detail/${trending?._id}`}
+                      className="text-md link-hover  font-bold"
+                    >
                       {trending?.title?.length > 49
                         ? trending?.title?.slice(0, 49) + "..."
                         : trending?.title}
                     </Link>
+                    <p className="text-sm ">
+                      {trending?.description?.slice(0, 70) + "..."}
+                      <span className="text-red-500 link-hover">Read More</span>
+                    </p>
                   </div>
                 </NavLink>
               </div>

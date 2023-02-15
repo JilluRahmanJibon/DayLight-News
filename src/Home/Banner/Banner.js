@@ -25,20 +25,16 @@ const Banner = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-1  my-4 sm:my-10 md:my-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-1  my-4 sm:my-10 md:my-10">
         <div className=" ">
           <Splide
             aria-label=""
             options={{
               autoplay: true,
-              height: "65vh",
-
+              height: "486px",
               breakpoints: {
-                1500: {
-                  height: "60vh",
-                },
-                1024: {
-                  height: "40vh",
+                500: {
+                  height: "330px",
                 },
               },
               rewind: true,

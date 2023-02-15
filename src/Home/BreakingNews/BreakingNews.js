@@ -33,7 +33,7 @@ const BreakingNews = () => {
           {datas?.slice(15, 35).map((breaking) => (
 
             <Link key={breaking?._id}
-              to={`/detail/${breaking?._id}`}
+              to={`/liveNewsApi/${breaking?.urlToImage}`}
               className=" h-32 hover:text-red-500 flex border-2"
             >
               <div className="overflow-hidden w-40 h-32">
@@ -54,7 +54,6 @@ const BreakingNews = () => {
                 </div>
               </div>
             </Link>
-
           ))}
         </Marquee>
       </div>
