@@ -82,7 +82,7 @@ const CurrencyConvertor = () => {
     return (
         <div>
             <h1 className='text-2xl font-bold pb-2'>Currency Convertor</h1>
-            <div className='flex items-center'>
+            <div className='flex gap-1 items-center '>
                 <CurrencyRow rates={rates} selectedCurrency={fromCurrency} onChangeCurrency={e => setFromCurrency(e.target.value)} amount={fromAmount} onChangeAmount={handleFromAmountChange} />
                 <CurrencyRow rates={rates} selectedCurrency={toCurrency} onChangeCurrency={e => setToCurrency(e.target.value)} amount={toAmount} onChangeAmount={handleToAmountChange} />
             </div>
