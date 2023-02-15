@@ -1,7 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { FaTimes } from "react-icons/fa";
-import { IoIosArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const SocialDrawer = () => {
@@ -30,12 +27,6 @@ const SocialDrawer = () => {
                 className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 "
               >
                 My News
-              </Link>
-            </li>
-
-            <li className="w-full ">
-              <Link className="block py-1 hover:bg-gray-200 duration-200 hover:pl-8 mt-1 shadow-sm  pl-2 ">
-                Followers
               </Link>
             </li>
 

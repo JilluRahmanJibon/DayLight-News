@@ -29,7 +29,7 @@ const ViralNews = () => {
               <Link
                 to={`/detail/${viral?._id}`}
                 key={viral?._id}
-                className=" h-full hover:text-red-500 w-full  "
+                className=" h-full  w-full  "
               >
                 <div className="flex w-full border border-gray-200 dark:border-gray-700   h-full items-center">
                   <div className="overflow-hidden  h-32 w-44">
@@ -46,15 +46,10 @@ const ViralNews = () => {
                     <h3 className="sm:text-md link-hover  text-md font-bold mb-1">
                       {viral?.title}
                     </h3>
-                    <p className="text-gray-500">
-                      {viral?.description?.slice(0, 45) + "..."}
+                    <p className="">
+                      {viral?.description?.slice(0, 50) + "..."}
+                      <span className="text-red-500 link-hover">Read More</span>
                     </p>
-                    <div className="flex gap-2 items-center font-bold text-gray-400">
-                      <RxCalendar></RxCalendar>
-                      <p className=" font-bold text-gray-400">
-                        {viral?.author?.published_date}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </Link>
@@ -71,7 +66,7 @@ const ViralNews = () => {
               <Link
                 to={`/detail/${viral?._id}`}
                 key={viral?._id}
-                className=" h-full hover:text-red-500 w-full  "
+                className=" h-full  w-full  "
               >
                 <div className="flex w-full border border-gray-200 dark:border-gray-700   h-full items-center">
                   <div className="overflow-hidden  h-32 w-44">
@@ -88,15 +83,10 @@ const ViralNews = () => {
                     <h3 className="sm:text-md link-hover  text-md font-bold mb-1">
                       {viral?.title}
                     </h3>
-                    <p className="text-gray-500">
-                      {viral?.description?.slice(0, 45) + "..."}
+                    <p className="">
+                      {viral?.description?.slice(0, 50) + "..."}
+                      <span className="text-red-500 link-hover">Read More</span>
                     </p>
-                    <div className="flex gap-2 items-center font-bold text-gray-400">
-                      <RxCalendar></RxCalendar>
-                      <p className=" font-bold text-gray-400">
-                        {viral?.author.date}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </Link>

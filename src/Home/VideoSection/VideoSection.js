@@ -20,7 +20,7 @@ const VideoSection = () => {
               <div className="mb-4 ">
                 <div className="h-72 ">
                   <iframe
-                    className="rounded-2xl"
+                    className="rounded"
                     width="100%"
                     height="100%"
                     src={video.video}
@@ -28,7 +28,6 @@ const VideoSection = () => {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen={true}
-
                   ></iframe>
                 </div>
                 <div className="mt-3">
@@ -59,7 +58,7 @@ const VideoSection = () => {
               <div className="h-[100%]">
                 <div className="lg:h-[650px] h-[300px] mb-3">
                   <iframe
-                    className="rounded-2xl"
+                    className="rounded"
                     width="100%"
                     height="100%"
                     src={video.video}
@@ -67,7 +66,6 @@ const VideoSection = () => {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen={true}
-
                   ></iframe>
                 </div>
                 <div className="mt-3">
@@ -98,7 +96,7 @@ const VideoSection = () => {
               <div className="mb-4 ">
                 <div className="h-72">
                   <iframe
-                    className="rounded-2xl"
+                    className="rounded"
                     width="100%"
                     height="100%"
                     src={video.video}
@@ -106,7 +104,6 @@ const VideoSection = () => {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen={true}
-
                   ></iframe>
                 </div>
                 <div className="mt-3">
@@ -129,11 +126,10 @@ const VideoSection = () => {
                 </div>
               </div>
             </div>
-          ))
-          }
-        </div >
-      </div >
-    </div >
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

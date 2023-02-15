@@ -25,13 +25,13 @@ const BreakingNews = () => {
       </div>
 
       <div>
-        <Marquee className="overflow-hidden" speed={2}>
+        <Marquee className="overflow-hidden" gradient={false} speed={2}>
           {isLoading && <SkeletonLoading cards={6} />}
           {breakingNews?.map((breaking) => (
             <Link
               key={breaking?._id}
               to={`/detail/${breaking?._id}`}
-              className=" h-32 hover:text-red-500 flex border-2"
+              className=" h-32 w-80 hover:text-red-500 flex border-2"
             >
               <div className="overflow-hidden w-40 h-32">
                 <img
@@ -44,11 +44,7 @@ const BreakingNews = () => {
                 <h3 className="sm:text-md link-hover hover:text-red-500  text-xl font-bold mb-1">
                   {breaking?.title?.slice(0, 20)}
                 </h3>
-                <p>{breaking?.description.slice(0, 30) + "..."}</p>
-                <div className="flex gap-1 items-center font-bold text-gray-400">
-                  <BiTime></BiTime>
-                  <p className=" font-bold text-gray-400">two minutes ago</p>
-                </div>
+                <p>{breaking?.description.slice(0, 50) + "..."}</p>
               </div>
             </Link>
           ))}
