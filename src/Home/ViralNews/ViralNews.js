@@ -103,26 +103,29 @@ const ViralNews = () => {
             ))}
           </div>
         </div>
-        <div className="">
-          <div className="font-bold border  border-gray-200 dark:border-gray-700   text-red-500 text-center py-1">
-            <h1>VIDEO OF THE DAY</h1>
-          </div>
-          <div className="h-[50%] mb-6 border border-gray-200 dark:border-gray-700  ">
-            <iframe
-              className=""
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/ULIJrqzwMIY"
-              title=" video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen={true}
-            ></iframe>
+        <div className="flex flex-col">
+          <div>
+            <div className="font-bold border  border-gray-200 dark:border-gray-700   text-red-500 text-center py-1">
+              <h1>VIDEO OF THE DAY</h1>
+            </div>
+            <div className="h-[60%]  mb-3 border border-gray-200 dark:border-gray-700  ">
+              <iframe
+                className=""
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/ULIJrqzwMIY"
+                title=" video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen={true}
+              ></iframe>
+            </div>
+            <div >
+              <button className="bg-black hover:bg-red-700 text-white  text-center py-2  font-bold border border-gray-200 dark:border-gray-700  mb-3 w-full">JOIN US</button>
+            </div>
           </div>
           <div>
-            <div className="text-center py-3  font-bold border border-gray-200 dark:border-gray-700   mb-3">
-              <h1>JOIN US</h1>
-            </div>
+            <img className="md:h-[280px] w-full object-cover" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/20bc45131591483.6197c71c1e6e9.jpg" alt="" />
           </div>
         </div>
       </div>

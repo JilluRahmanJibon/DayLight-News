@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Plot from "react-plotly.js";
 import HomePageSnipper from "../HomePageStorySection/HomePageSnipper";
 import "../LiveStockMarketData/LiveStockMarket.css";
+import { FaArrowAltCircleUp, FaArrowCircleDown, FaCheck, FaEquals } from "react-icons/fa";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const LiveStockMarketData = () => {
   const [isLoading, setLoading] = useState(false);
@@ -62,22 +64,16 @@ const LiveStockMarketData = () => {
       });
   }, [selectedOption]);
 
-  // console.log("date", timeSeries)
-  // console.log("open", open)
-  // console.log("high", high)
-  // console.log("low", low)
-  // console.log("close", close)
-  // console.log("adjusted", adjusted)
-  console.log(allValue);
+
 
   return (
     <div className="">
-      {isLoading ? (
+      {!allValue?.open && isLoading ? (
         <HomePageSnipper />
       ) : (
         <div>
           <div>
-            <p className="text-1xl py-2">Select your Stock by Name </p>
+            <p className="text-2xl font-semibold py-2">Select your Stock by Name </p>
             <select
               className="border p-2 text-1xl"
               value={selectedOption}
@@ -117,16 +113,17 @@ const LiveStockMarketData = () => {
             className="w-full h-full "
           />
 
-          <div className="pt-10">
-            {isLoading ? (
+          <div className="pt-10 overflow-hidden">
+            {!allValue?.open && allValue === null && isLoading ? (
               <>
                 <HomePageSnipper />
                 <h1>No Data Available yet</h1>
+
               </>
             ) : (
               <>
                 <p className="p-2 text-2xl ">Last 100 Day Data</p>
-                <table className="table w-full">
+                <table className="table w-full overflow-hidden">
                   <thead>
                     <tr>
                       <th>Date</th>
@@ -138,16 +135,24 @@ const LiveStockMarketData = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {Object.entries(allValue).map(([key, value]) => (
-                      <tr key={key}>
-                        <td>{key}</td>
-                        <td>{value["1. open"]}</td>
-                        <td>{value["2. high"]}</td>
-                        <td>{value["3. low"]}</td>
-                        <td>{value["4. close"]}</td>
-                        <td>{value["5. adjusted close"]}</td>
-                      </tr>
-                    ))}
+                    {
+                      timeSeries?.length ? <>
+                        {Object?.entries(allValue)?.map(([key, value]) => (
+                          <tr key={key}>
+                            <td>{key}</td>
+                            <td><FaCheck className="text-yellow-600" />{value["1. open"]}</td>
+                            <td ><FaArrowAltCircleUp className="text-green-500" />{value["2. high"]}</td>
+                            <td ><FaArrowCircleDown className="text-red-500" />{value["3. low"]}</td>
+                            <td>< AiFillCloseCircle className="text-red-500" />{value["4. close"]}</td>
+                            <td><FaEquals className="text-green-500" />{value["5. adjusted close"]}</td>
+                          </tr>
+                        ))}
+                      </> : <>
+                        <div className="py-20 w-full">
+                          <h1 className="text-3xl text-red-500 font-bold text-center   w-full">Something was wrong please Try Few Minute Later ...</h1>
+                        </div>
+                      </>
+                    }
                   </tbody>
                 </table>
               </>

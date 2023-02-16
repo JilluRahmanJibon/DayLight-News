@@ -5,6 +5,7 @@ import { AiOutlineSound, AiFillCopy } from "react-icons/ai";
 import country from "../Translation/data";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const TranslationPage = () => {
 	// console.log(country)
@@ -35,7 +36,7 @@ const TranslationPage = () => {
 							: "";
 
 				let option = ` <option ${selected} value="${country_code}">${country[country_code]}</option >`;
-				// console.log("2", option)
+				console.log("2", option)
 
 				tag.insertAdjacentHTML("beforeend", option);
 			}
@@ -113,8 +114,27 @@ const TranslationPage = () => {
 
 	return (
 		<>
-			<div className="flex items-center justify-center px-3 ">
+			<div className="flex items-center justify-center px-3 max-w-[1440px] mx-auto  ">
+
 				<div className="h-[700px] md:p-5 w-full  shadow-md my-5">
+					<div className="flex items-center ">
+						<div className="">
+							<Link to="/" className="bg-black text-white py-2 px-3">
+								Back To Home
+							</Link>
+						</div>
+						<div className="mx-auto">
+							<h1 className="text-xl select-none font-bold italic w-40 sm:w-52 md:w-72 h-8 sm:h-12 mx-auto ">
+								<Link to="/">
+									<img
+										src="https://i.ibb.co/Bt8wXLL/326100251-1125279861516128-3654996220526622824-n-removebg-preview.png"
+										alt=""
+									/>
+								</Link>
+							</h1>
+						</div>
+					</div>
+					<p className="text-sm font-bold text-center pt-10">if translation not work properly, Please Take Refresh full window Just One Time</p>
 					<div className="rounded-md  h-[400px] p-5 flex md:flex-row flex-col ">
 						<textarea
 							className="from-text w-full h-[300px] outline-none   resize-none border md:rounded-l-lg p-3"

@@ -1,3 +1,4 @@
+import { all } from 'axios';
 import React, { useEffect, useState } from 'react';
 import Plot from 'react-plotly.js';
 import HomePageSnipper from '../HomePageStorySection/HomePageSnipper';
@@ -29,7 +30,6 @@ const LiveBitcoinPlatprom = () => {
     }
 
 
-
     useEffect(() => {
         let StockChartOpenValue = [];
         let StockChartCloseValue = [];
@@ -51,60 +51,58 @@ const LiveBitcoinPlatprom = () => {
             })
     }, [selectedOption])
 
-    console.log(open)
-
 
     return (
         <>
 
             {
-                isLoading ? <HomePageSnipper /> : <div>
-                    <div >
-                        <p className='text-1xl py-2'>Select your Stock by Name </p>
-                        <select className='border p-2 text-3xl' value={selectedOption} onChange={handleChange}>
-                            <option value="BTC" >Bitcoin</option>
-                            <option value="ETH">Ethereum</option>
-                            <option value="DOGE">Dogecoin</option>
-                            <option value="DOT">Polkadot</option>
-                        </select>
-
-                    </div>
-
-                    <div className=' text-black
-             mx-auto flex items-center flex-wrap gap-5 mt-20 justify-center'>
-                        {Object.entries(allValue).slice(0, 1).map(([key, value]) => (
+                open?.length ? <div>
+                    {
+                        isLoading ? (
                             <>
-
-                                <p className='text-2xl font-bold'>{selectedOption}</p>
-                                <p className='text-2xl text-green-400'>${value["5. volume"]}</p>
-                                <p className='text-2xl text-red-600'>-{value["3b. low (USD)"]}</p>
-                                <p className='text-2xl '>${value["6. market cap (USD)"]}</p>
+                                <HomePageSnipper />
                             </>
+                        ) : <div>
+                            <div >
+                                <p className='text-1xl py-2'>Select your Stock by Name </p>
+                                <select className='border p-2 text-3xl' value={selectedOption} onChange={handleChange}>
+                                    <option value="BTC" >Bitcoin</option>
+                                    <option value="ETH">Ethereum</option>
+                                    <option value="DOGE">Dogecoin</option>
+                                    <option value="DOT">Polkadot</option>
+                                </select>
+
+                            </div>
+
+                            <div className=' text-black
+             mx-auto flex items-center flex-wrap gap-5 mt-20 justify-center'>
 
 
-                        ))}
 
+                            </div>
+                            <div className='mx-auto  text-center'>
+                                <Plot
+                                    data={[
+                                        {
+                                            x: [close, open],
+                                            y: open,
+                                            type: 'scatter',
+                                            mode: 'lines+markers',
+                                            marker: { color: 'red' },
+                                        },
 
-                    </div>
-                    <div className='mx-auto  text-center'>
-                        <Plot
-                            data={[
-                                {
-                                    x: [close, open],
-                                    y: open,
-                                    type: 'scatter',
-                                    mode: 'lines+markers',
-                                    marker: { color: 'red' },
-                                },
+                                    ]}
 
-                            ]}
+                                    layout={{ autosize: true, }}
+                                    useResizeHandler
+                                    className="mx-auto w-full h-full"
 
-                            layout={{ autosize: true, }}
-                            useResizeHandler
-                            className="mx-auto w-full h-full"
-
-                        />
-                    </div>
+                                />
+                            </div>
+                        </div>
+                    }
+                </div> : <div className="py-20 w-full">
+                    <h1 className="text-3xl text-red-500 font-bold text-center   w-full">Something was wrong please Try Few Minute Later ...</h1>
                 </div>
             }
 

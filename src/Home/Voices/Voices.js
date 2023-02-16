@@ -40,13 +40,13 @@ const Voices = () => {
           </div>
         </div>
         <div>
-          <div className="lg:grid lg:grid-cols-2 gap-x-5 sm:gap-y-10 gap-y-5  hidden">
+          <div className="lg:grid lg:grid-cols-2 gap-3  gap-y-5  hidden">
             {isLoading && <SkeletonLoading />}
             {voicesNews?.slice(0, 6).map((Voice) => (
               <VoicesCard key={Voice?._id} VoiceNews={Voice} />
             ))}
           </div>
-          <div className="gap-x-5 sm:gap-y-10 gap-y-5 block lg:hidden">
+          <div className="gap-3 gap-y-5 block lg:hidden">
             {isLoading && <SkeletonLoading />}
             {voicesNews?.slice(0, 3).map((Voice) => (
               <VoicesCard key={Voice?._id} VoiceNews={Voice} />

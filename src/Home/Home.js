@@ -28,19 +28,19 @@ const Home = () => {
         <SearchData />
       ) : (
         <>
-          {/* <Banner /> */}
-          {/* <BreakingNews /> */}
-          {/* <TrendingNews /> */}
-          {/* <HomePageDivisionData /> */}
-          {/* <HomePageLetestNews /> */}
-          {/* <HomePageArticalAndPost /> */}
-          {/* <OnlineVatingSection /> */}
-          {/* <SportsNews /> */}
-          {/* <HomePageStorySection /> */}
-          {/* <VideoSection /> */}
-          {/* <ViralNews /> */}
-          {/* <News /> */}
-          {/* <EnvironmentNews /> */}
+          <Banner />
+          <BreakingNews />
+          <TrendingNews />
+          <HomePageDivisionData />
+          <HomePageLetestNews />
+          <HomePageArticalAndPost />
+          <OnlineVatingSection />
+          <SportsNews />
+          <HomePageStorySection />
+          <VideoSection />
+          <ViralNews />
+          <News />
+          <EnvironmentNews />
           <Voices />
           <WorldinPictures />
         </>

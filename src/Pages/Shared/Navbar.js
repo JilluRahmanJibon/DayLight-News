@@ -86,7 +86,7 @@ const Navbar = () => {
           </div>
           <div className="max-w-[1440px] mx-auto items-center sm:flex-row flex flex-col justify-between">
             <div>
-              <CurrencyConvertor />
+              {/* <CurrencyConvertor /> */}
             </div>
 
             <div>

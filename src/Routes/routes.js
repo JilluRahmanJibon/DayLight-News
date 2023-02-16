@@ -94,10 +94,7 @@ export const router = createBrowserRouter([
         path: "/gadgets",
         element: <Gadgets />,
       },
-      {
-        path: "/translation",
-        element: <TranslationPage />,
-      },
+
       {
         path: "/account",
         element: (
@@ -149,6 +146,10 @@ export const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "/translation",
+    element: <TranslationPage />,
   },
   {
     path: "gadgets",

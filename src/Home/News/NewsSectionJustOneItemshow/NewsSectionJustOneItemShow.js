@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const NewsSectionJustOneItemShow = ({ data }) => {
   const { title, picture, descrption, category, author, _id } = data;
   return (
-    <div className="  flex items-center   my-3 gap-4 ">
+    <div className="flex items-center my-3 gap-4 ">
       <div className="relative overflow-hidden ">
         <img
           className="work  ease-in-out duration-500 object-cover md:h-[300px] w-full transition transform hover:scale-125"
