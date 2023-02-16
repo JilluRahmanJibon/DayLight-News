@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BiDotsVertical } from "react-icons/bi";
-import { FaRegComment, FaShare } from "react-icons/fa";
-import { MdDelete, MdOutlineAddReaction } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { getRole } from "../../api/auth";
