@@ -408,7 +408,7 @@ const AdminAccount = () => {
               {newUsers?.slice(-5).map((users) => (
                 <div key={users._id} className="text-gray-700   font-semibold">
                   <div className="flex  transition-all items-center justify-between  py-3 px-2 border ">
-                    <div className="flex items-center gap-4 w-36">
+                    <div className="flex items-center gap-4 ">
                       {users?.image ? (
                         <img
                           className="w-6 h-6 rounded-full"
