@@ -48,7 +48,11 @@ const BreakingNews = () => {
                   <h3 className="sm:text-md link-hover hover:text-red-500  text-xl font-bold mb-1">
                     {breaking?.title?.slice(0, 20)}
                   </h3>
-                  <p>{breaking?.description.slice(0, 50) + "..."}</p>
+                  <p>{breaking?.description.slice(0, 30) + "..."}</p>
+                  <div className="flex gap-1 items-center font-bold text-gray-400">
+                    <BiTime></BiTime>
+                    <p className=" font-bold text-gray-400">two minutes ago</p>
+                  </div>
                 </div>
               </Link>
             ))

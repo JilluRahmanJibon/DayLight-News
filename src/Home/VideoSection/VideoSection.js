@@ -9,7 +9,7 @@ const VideoSection = () => {
       .then((data) => setVideoPost(data));
   }, []);
   return (
-    <div className="mb-4 sm:my-10 md:my-16">
+    <div className="mb-8">
       <div className="font-bold text-xl sm:text-2xl text-red-500 my-3">
         <h1>VIDEO POST NEWS</h1>
       </div>

@@ -16,6 +16,7 @@ import {
 } from "recharts";
 import CountUp from "react-countup";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { RxAvatar } from "react-icons/rx";
 
 const AdminAccount = () => {
   const { user } = useContext(AuthContext);
@@ -408,17 +409,18 @@ const AdminAccount = () => {
                 <div key={users._id} className="text-gray-700   font-semibold">
                   <div className="flex  transition-all items-center justify-between  py-3 px-2 border ">
                     <div className="flex items-center gap-4 w-36">
-                      <img
-                        className="w-6 h-6 rounded-full"
-                        src={users?.image}
-                        alt=""
-                      />
+                      {users?.image ? (
+                        <img
+                          className="w-6 h-6 rounded-full"
+                          src={users?.image}
+                          alt=""
+                        />
+                      ) : (
+                        <RxAvatar></RxAvatar>
+                      )}
                       <p className="">{users.name} </p>
                     </div>
-                    <p>{users?.email}</p>
-                    <p className="p-1 bg-orange-100  rounded-md ">
-                      <RiDeleteBin6Line className="w-6 h-6  text-orange-300"></RiDeleteBin6Line>
-                    </p>
+                    <p className="hidden sm:block">{users?.email}</p>
                   </div>
                 </div>
               ))}
@@ -430,7 +432,10 @@ const AdminAccount = () => {
                 <h1>Website Traffic</h1>
                 <div className="w-2 h-2 mt-1 bg-green-500 animate-pulse rounded-full"></div>
               </div>
-              <div className="border" style={{ width: "100%", height: 280 }}>
+              <div
+                className="border w-[100%]"
+                style={{ width: "100%", height: 280 }}
+              >
                 <AreaChart
                   width={500}
                   height={250}

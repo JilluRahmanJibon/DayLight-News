@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { RxCalendar } from "react-icons/rx";
 const EnvironmentNewsCard = ({ EnvNews }) => {
   const { title, picture, _id, category, description, author } = EnvNews;
   return (
