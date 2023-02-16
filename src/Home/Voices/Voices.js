@@ -20,26 +20,38 @@ const Voices = () => {
       </div>
       <div className="flex md:flex-row flex-col gap-5">
         <div className="">
-          <div className="flex justify-center">
-            <div className="rounded-lg shadow-lg  border border-gray-200 dark:border-gray-700   max-w-sm">
+          <div className="">
+            <div className="rounded-lg shadow-lg  border border-gray-200 dark:border-gray-700 md:max-w-sm w-full">
               <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <img className="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" alt="" />
+                <img className="rounded-t-lg h-[200px] w-[800px]" src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" alt="" />
               </a>
               <div className="p-2">
-                <h5 className="text-gray-900 dark:text-white text-xl font-medium mb-2">The enduring message my grandfather took</h5>
-                <p className="text-gray-700 text-base text-justify mb-4">
-                  Air pollution control devices are a series of devices that work to prevent a variety of different pollutants, both gaseous and solid, from entering the atmosphere primarily out of industrial
+                <h5 className="text-gray-900 dark:text-white text-lg font-medium mb-2">The enduring message my grandfather took</h5>
+                <p className="text-gray-700 text-base  mb-4">
+                  Air pollution control devices are a series of devices that work to prevent a variety of different pollutants, both gaseous and solid,
                 </p>
 
               </div>
+              <div>
+                <img src="https://i.pinimg.com/originals/33/07/12/3307123c852b5364afa15de6267a30a5.jpg" alt="" />
+              </div>
             </div>
+
           </div>
         </div>
-        <div className="grid lg:grid-cols-2 gap-x-5 sm:gap-y-10 gap-y-5">
-          {isLoading && <SkeletonLoading />}
-          {voicesNews?.slice(0, 6).map((Voice) => (
-            <VoicesCard key={Voice?._id} VoiceNews={Voice} />
-          ))}
+        <div>
+          <div className="lg:grid lg:grid-cols-2 gap-x-5 sm:gap-y-10 gap-y-5  hidden">
+            {isLoading && <SkeletonLoading />}
+            {voicesNews?.slice(0, 6).map((Voice) => (
+              <VoicesCard key={Voice?._id} VoiceNews={Voice} />
+            ))}
+          </div>
+          <div className="gap-x-5 sm:gap-y-10 gap-y-5 block lg:hidden">
+            {isLoading && <SkeletonLoading />}
+            {voicesNews?.slice(0, 3).map((Voice) => (
+              <VoicesCard key={Voice?._id} VoiceNews={Voice} />
+            ))}
+          </div>
         </div>
       </div>
 

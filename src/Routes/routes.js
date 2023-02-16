@@ -42,6 +42,7 @@ import GadgetPaymentForm from "../Gadgets/GadgetPaymentForm";
 import HomePageStoryAllImage from "../Home/HomePageStorySection/HomePageStoryAllImage";
 import LiveCryptoMarketData from "../Home/LiveCryptoMarketData/LiveCryptoMarketData";
 import LiveNewsApiDetailsPage from "../Components/CardDetailsPage/LiveNewsApiDetailsPage/LiveNewsApiDetailsPage";
+import NewsCountryDetals from "../Home/WorldinPictures/NewsCountryDetals";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,7 @@ export const router = createBrowserRouter([
       },
       { path: "detail/:id", element: <CardDetailsPage /> },
       { path: "/liveNewsApi/:title", element: <LiveNewsApiDetailsPage /> },
+      { path: "/news/:news", element: <NewsCountryDetals /> },
       { path: "/category/:id", element: <AllCategoryPage /> },
       { path: "/gadgets/:id", element: <Gadgets /> },
       { path: "/GadgetPaymentForm/gadget", element: <GadgetPaymentForm /> },
