@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import DonationModalCard from './DonationModalCard';
-import { BiDonateBlood } from 'react-icons/bi'
-
 const DonationModal = () => {
     const [showModal, setShowModal] = useState(false)
 
@@ -9,20 +6,10 @@ const DonationModal = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setShowModal(true);
-        }, 5000);
+        }, 10000);
 
         return () => clearTimeout(timeout);
     }, []);
-
-    // <button
-    //     className="bg-transparent border-0 text-black float-right"
-    //     onClick={() => setShowModal(false)}
-    // >
-    //     <span className="text-black opacity-7 h-6 w-6 text-xl block bg-gray-400 py-0 rounded-full">
-    //         x
-    //     </span>
-    // </button>
-
 
     return (
         <div >
@@ -59,8 +46,6 @@ const DonationModal = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
