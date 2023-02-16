@@ -45,7 +45,7 @@ const Comments = () => {
                   <tr>
                     <th>Picture</th>
                     <th>comment</th>
-                    <th>Date & Time</th>
+                    <th className="hidden md:block">Date & Time</th>
                     <th>Remove</th>
                   </tr>
                 </thead>
@@ -57,7 +57,7 @@ const Comments = () => {
                           <div className="avatar">
                             <a
                               href={`/detail/${comment._id}`}
-                              className=" w-20 h-20"
+                              className=" sm:w-12 w-6 h-6 sm:h-12"
                             >
                               <img
                                 src={comment?.comment?.picture}
@@ -67,21 +67,19 @@ const Comments = () => {
                           </div>
                         </div>
                       </td>
-                      <td>
-                        <div className="text-2xl">
-                          {comment?.comment?.message?.slice(0, 20)}
-                        </div>
+                      <td className="">
+                        <div>{comment?.comment?.message?.slice(0, 20)}</div>
                       </td>
-                      <td className="text-xl pt-10 lg:pt-0">
+                      <td className="hidden md:block">
                         {comment?.comment?.date}, {comment?.comment?.time}
                       </td>
 
                       <th>
                         <button
                           onClick={() => handleDeteteComment(comment?._id)}
-                          className=" px-3 py-2 bg-[#DEF9EC] text-[#3BB77E] rounded flex hover:text-white hover:bg-[#3BB77E] text-[14px] font-bold"
+                          className=" px-3 py-2 bg-red-50 text-red-500 rounded flex hover:text-white hover:bg-red-500 text-[14px] font-bold"
                         >
-                          <TrashIcon className="w-6 h-6" />
+                          <TrashIcon className="sm:w-6 w-3 h-3 sm:h-6" />
                         </button>
                       </th>
                     </tr>
