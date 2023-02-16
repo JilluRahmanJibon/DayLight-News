@@ -57,7 +57,7 @@ const TrendingNews = () => {
                 <NavLink to={`/detail/${trending?._id}`}>
                   <div className="overflow-hidden">
                     <img
-                      className="w-full h-40 ease-in-out duration-500 transform hover:scale-125"
+                      className="w-full h-36 ease-in-out duration-500 transform hover:scale-125"
                       src={trending?.picture}
                       alt=""
                     />
