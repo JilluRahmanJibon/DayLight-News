@@ -25,7 +25,7 @@ const Wishlist = () => {
   if (allWishlists.length === 0) {
     return (
       <div className="text-center text-3xl py-5 px-10">
-        <h1>You have no Comments</h1>
+        <h1>You have no Wishlist</h1>
       </div>
     );
   }
