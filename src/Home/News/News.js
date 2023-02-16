@@ -1,43 +1,29 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 import NewsSectionJustOneItemShow from "./NewsSectionJustOneItemshow/NewsSectionJustOneItemShow";
 import TravelCards from "./TravelCards/TravelCards";
 
 const News = () => {
-  const [techNews, setTechNews] = useState([]);
-  const [lifeStyle, setLifeStyle] = useState([]);
-  const [cultureshNews, setCulturesNews] = useState([]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}news`)
+  const { data: techNews = [] } = useQuery({
+    queryKey: ['entertainment'],
+    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}entertainment`)
       .then((res) => res.json())
-      .then((result) => {
-        const techNews = result?.filter((tech) => tech?.category === "entertainment");
-        setTechNews(techNews?.slice(-4));
-      });
-  }, []);
+  })
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}news`)
+  const { data: lifeStyle = [] } = useQuery({
+    queryKey: ['lifeStyle'],
+    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}lifeStyle`)
       .then((res) => res.json())
-      .then((result) => {
-        const lifeStyles = result?.filter(
-          (lifeStyles) => lifeStyles?.category === "lifeStyle"
-        );
-        setLifeStyle(lifeStyles?.slice(-4));
-      });
-  }, []);
+  })
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}news`)
+  const { data: cultureshNews = [] } = useQuery({
+    queryKey: ['cultures'],
+    queryFn: () => fetch(`${process.env.REACT_APP_API_URL}cultures`)
       .then((res) => res.json())
-      .then((result) => {
-        const cultures = result?.filter(
-          (cultures) => cultures?.category === "cultures"
-        );
-        setCulturesNews(cultures?.slice(-4));
-      });
-  }, []);
+  })
+
 
   return (
     <div className="mx-auto mb-12">

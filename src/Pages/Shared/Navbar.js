@@ -6,7 +6,6 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import SpacialNews from "../../Components/SpacialNews/SpacialNews";
 import DonateNotUser from "../../Components/DonationPage/DonateNotUser";
-import { FaFacebook, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
 import CurrencyConvertor from "../../Home/CurrencyConvertor/CurrencyConvertor";
 
 const Navbar = () => {
@@ -131,6 +130,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
+                  title="Social Media"
                   to="/socialMedia"
                   className="text-1xl hover:text-red-500 font-semibold"
                 >
@@ -139,26 +139,28 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
+                  title="Translate Your Language"
                   to="/translation"
                   className="text-1xl hover:text-red-500 font-semibold"
                 >
-                  Translate Your Language{" "}
+                  Translate
                 </NavLink>
               </li>
               <li>
                 <NavLink
+                  title="Live Stock Market"
                   className="text-1xl hover:text-red-500 font-semibold"
                   to="/stockMarket"
                 >
-                  Live Stock Market{" "}
+                  Stock Market{" "}
                 </NavLink>
               </li>
               <li>
-                <NavLink
+                <NavLink title="Crypto Currency Market"
                   to="/cryptoMarket"
                   className="text-1xl hover:text-red-500 font-semibold"
                 >
-                  Crypto Currency Market
+                  Crypto
                 </NavLink>
               </li>
               <li>
@@ -191,6 +193,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
+                  title="Gadgets"
                   className="text-1xl hover:text-red-500 font-semibold"
                   to={`/gadgets`}
                 >

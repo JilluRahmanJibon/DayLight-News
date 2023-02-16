@@ -6,19 +6,20 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { FaFacebookF, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
 import { IoIosArrowDropleft } from "react-icons/io";
 import { CgDarkMode } from "react-icons/cg";
+import { AiOutlineWechat } from "react-icons/ai";
 import 'react-loading-skeleton/dist/skeleton.css'
 import { QueryClient, QueryClientProvider, } from '@tanstack/react-query'
-import { DarkAndWhiteContext } from "./Contexts/AuthProvider/AuthProvider";
+import { AuthContext, DarkAndWhiteContext } from "./Contexts/AuthProvider/AuthProvider";
 
 
 
 const queryClient = new QueryClient()
-function App ()
-{
+function App() {
   const { setIsDarkMode, isDarkMode } = useContext(DarkAndWhiteContext)
-  const [ openIcons, setOpenIcons ] = useState(false);
-  const handlDarkAndWhiteMode = () =>
-  {
+  const { user } = useContext(AuthContext)
+  const [openIcons, setOpenIcons] = useState(false);
+  const [chatOpenBox, setChatOpenBox] = useState(false);
+  const handlDarkAndWhiteMode = () => {
 
     setIsDarkMode(!isDarkMode)
 
@@ -26,7 +27,7 @@ function App ()
 
   return (
 
-    <div className={`relative ${ isDarkMode ? 'bg-gray-900 text-gray-200' : ' bg-white' }`} >
+    <div className={`relative ${isDarkMode ? 'bg-gray-900 text-gray-200' : ' bg-white'}`} >
 
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
@@ -76,10 +77,31 @@ function App ()
               <p className="transform -rotate-90 mt-8 text-lg font-bold">FOLLOWUS</p>
             </div>
           </li>
-
-
         </ul>
+
       </div>
+
+      <div className="absolute right-16 text-5xl bottom-8">
+        <label htmlFor="chatModalBox" >
+          <AiOutlineWechat onClick={() => setChatOpenBox(true)} className="cursor-pointer animate-pulse" />
+        </label>
+      </div>
+
+      {
+        chatOpenBox && <>
+          <input type="checkbox" id="chatModalBox" className="modal-toggle" />
+          <div className="modal">
+            <div className="modal-box relative">
+              <label htmlFor="chatModalBox" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+              <h3 className="text-lg font-bold">{user?.email ? <>Welcome {user?.displayName}</> : <>
+                Please Login before
+              </>}</h3>
+              <p className="py-4">This feature are not available at the moments. This feature will be work very soon!, Thanks  </p>
+            </div>
+          </div>
+        </>
+
+      }
     </div>
 
   );

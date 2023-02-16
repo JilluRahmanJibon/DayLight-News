@@ -16,18 +16,18 @@ const Gadgets = () => {
     const [price, setPrice] = useState(500);
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
-    const [select, setSelect]=useState(null)
+    const [select, setSelect] = useState(null)
 
     const { data: gadgets, isLoading, refetch } = useQuery({
         queryKey: ['gadgets'],
         queryFn: () => fetch(`${process.env.REACT_APP_API_URL}gadgets`)
             .then((res) => res.json())
     })
-    // console.log(gadgets)
+
 
     const handleGadgetsBuy = () => {
         const gadgetsAllData = {
-            picture:select?.picture,
+            picture: select?.picture,
             productName: select?.productName,
             title: select?.title,
             quantity,
@@ -35,6 +35,8 @@ const Gadgets = () => {
             userEmail: user?.email,
             userName: user?.displayName,
         }
+
+
 
         fetch(`${process.env.REACT_APP_API_URL}gadgetsBuy`, {
             method: "POST",
@@ -45,7 +47,6 @@ const Gadgets = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
                 setLoading(false);
                 setQuantity(1)
                 setPrice(500)
@@ -54,7 +55,6 @@ const Gadgets = () => {
             });
 
     }
-
 
     if (isLoading) {
         return;
@@ -72,7 +72,7 @@ const Gadgets = () => {
                 )}
             </div>
             {
-                select && 
+                select &&
                 <GadgetsModal
                     handleGadgetsBuy={handleGadgetsBuy}
                     quantity={quantity}

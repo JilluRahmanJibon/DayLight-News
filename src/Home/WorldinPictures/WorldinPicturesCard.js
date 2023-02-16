@@ -7,8 +7,9 @@ const WorldinPicturesCard = ({
   absolute,
   heroOverlay,
 }) => {
-  const { title, picture, _id, category, description, author, country } =
+  const { title, picture, _id, country } =
     WorldinPicture;
+  console.log(WorldinPicture);
   return (
     <section className="">
       <Link
@@ -25,9 +26,9 @@ const WorldinPicturesCard = ({
               alt="/"
             />
           </div>
-          <div className={`${heroOverlay} h-full `}>
-            <div className={`mx-2 ${absolute} bottom-2 pb-5`}>
-              <h1 className="link-hover ">{title?.slice(0, 30)}...</h1>
+          <div className={`${heroOverlay}`}>
+            <div className={`mx-2 ${absolute}`}>
+              <h1 className="link-hover">{title?.slice(0, 50)}...</h1>
               <p className="leading-none text-lg link-hover">{country}</p>
             </div>
           </div>
