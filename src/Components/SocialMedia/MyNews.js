@@ -5,28 +5,24 @@ import { FaRegComment, FaShare } from "react-icons/fa";
 import { MdDelete, MdOutlineAddReaction } from "react-icons/md";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
-const MyNews = () =>
-{
+const MyNews = () => {
   const { user } = useContext(AuthContext);
   const { data: socialNews, refetch } = useQuery({
-    queryKey: [ "stories", user?.email ],
+    queryKey: ["stories", user?.email],
     queryFn: () =>
-      fetch(`${ process.env.REACT_APP_API_URL }socialNews/${ user?.email }`).then((res) =>
-        res.json()
+      fetch(`${process.env.REACT_APP_API_URL}socialNews/${user?.email}`).then(
+        (res) => res.json()
       ),
   });
 
-  const handelDelete = (e) =>
-  {
+  const handelDelete = (e) => {
     console.log(e);
-    fetch(`${ process.env.REACT_APP_API_URL }socialNews/${ e }`, {
+    fetch(`${process.env.REACT_APP_API_URL}socialNews/${e}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) =>
-      {
-        if (data.deletedCount > 0)
-        {
+      .then((data) => {
+        if (data.deletedCount > 0) {
           toast.success("Deleted successfully");
           refetch();
         }
@@ -71,22 +67,7 @@ const MyNews = () =>
               <img className="w-full h-64 mt-4" src={news?.image} alt="" />
               <div className="px-6 py-2">
                 <div className="font-bold text-xl mb-2">{news.title}</div>
-                <p className="text-gray-700 text-base">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  fugit corporis ex praesentium iure. Illum esse deserunt
-                  tempora dolor quasi.
-                </p>
-              </div>
-              <div className="px-6 py-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                  <MdOutlineAddReaction></MdOutlineAddReaction>
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                  <FaRegComment></FaRegComment>
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                  <FaShare></FaShare>
-                </span>
+                <p className="text-gray-700 text-base">{news?.description}</p>
               </div>
             </div>
           </div>

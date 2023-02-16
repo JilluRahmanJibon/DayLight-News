@@ -84,9 +84,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="max-w-[1440px] mx-auto items-center sm:flex-row flex flex-col justify-between">
-            <div>
-              {/* <CurrencyConvertor /> */}
-            </div>
+            <div>{/* <CurrencyConvertor /> */}</div>
 
             <div>
               <h1 className="text-xl select-none font-bold italic w-40 sm:w-52 md:w-72 h-8 sm:h-12">
@@ -119,16 +117,6 @@ const Navbar = () => {
               </li>
 
               <li>
-                <NavLink className="text-1xl hover:text-red-500 font-semibold">
-                  News
-                </NavLink>
-              </li>
-              <li >
-                <NavLink className="text-1xl hover:text-red-500 font-semibold">
-                  Sports
-                </NavLink>
-              </li>
-              <li>
                 <NavLink
                   title="Social Media"
                   to="/socialMedia"
@@ -156,7 +144,8 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink title="Crypto Currency Market"
+                <NavLink
+                  title="Crypto Currency Market"
                   to="/cryptoMarket"
                   className="text-1xl hover:text-red-500 font-semibold"
                 >
@@ -178,7 +167,6 @@ const Navbar = () => {
                   >
                     {categories?.map((category, i) => (
                       <li key={i} className="w-full">
-
                         <Link
                           to={`/category/${category}`}
                           className="block p-2 px-2 hover:pl-8 ease-in-out duration-300 hover:text-white  my-1 hover:bg-red-500 "

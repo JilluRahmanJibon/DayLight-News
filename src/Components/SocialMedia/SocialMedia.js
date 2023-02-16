@@ -71,9 +71,7 @@ const SocialMedia = () => {
                     <MdDelete className="w-5 h-5"></MdDelete>
                   </button>
                 ) : (
-                  <button>
-                    <BiDotsVertical></BiDotsVertical>
-                  </button>
+                  <></>
                 )}
               </>
             </div>
@@ -83,17 +81,6 @@ const SocialMedia = () => {
               <p className="text-gray-700 text-base">
                 {news?.description.slice(0, 200)}
               </p>
-            </div>
-            <div className="px-6 py-2">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                <MdOutlineAddReaction></MdOutlineAddReaction>
-              </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                <FaRegComment></FaRegComment>
-              </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                <FaShare></FaShare>
-              </span>
             </div>
           </div>
         </div>
