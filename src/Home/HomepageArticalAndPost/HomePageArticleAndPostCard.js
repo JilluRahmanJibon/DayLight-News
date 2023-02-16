@@ -11,7 +11,7 @@ const HomePageArticleAndPostCard = ({ data }) => {
     >
       <div className="overflow-hidden">
         <img
-          className="transition transform ease-in-out duration-500 hover:scale-125 object-cover w-full h-36"
+          className="transition transform ease-in-out duration-500 hover:scale-125 object-cover w-full h-40"
           src={picture}
           alt="/"
         />
