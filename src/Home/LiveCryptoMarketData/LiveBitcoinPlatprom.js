@@ -56,14 +56,14 @@ const LiveBitcoinPlatprom = () => {
         <>
 
             {
-                open?.length ? <div>
-                    {
-                        isLoading ? (
-                            <>
-                                <HomePageSnipper />
-                            </>
-                        ) : <div>
-                            <div >
+                isLoading ? (
+                    <>
+                        <HomePageSnipper />
+                    </>
+                ) :
+                    <>
+                        {
+                            open?.length ? <>  <div>
                                 <p className='text-1xl py-2'>Select your Stock by Name </p>
                                 <select className='border p-2 text-3xl' value={selectedOption} onChange={handleChange}>
                                     <option value="BTC" >Bitcoin</option>
@@ -74,37 +74,40 @@ const LiveBitcoinPlatprom = () => {
 
                             </div>
 
-                            <div className=' text-black
+                                <div className=' text-black
              mx-auto flex items-center flex-wrap gap-5 mt-20 justify-center'>
 
 
 
+                                </div>
+                                <div className='mx-auto  text-center'>
+                                    <Plot
+                                        data={[
+                                            {
+                                                x: [close, open],
+                                                y: open,
+                                                type: 'scatter',
+                                                mode: 'lines+markers',
+                                                marker: { color: 'red' },
+                                            },
+
+                                        ]}
+
+                                        layout={{ autosize: true, }}
+                                        useResizeHandler
+                                        className="mx-auto w-full h-full"
+
+                                    />
+                                </div>
+                            </> : <div className="py-20 w-full">
+                                <h1 className="text-3xl text-red-500 font-bold text-center   w-full">Something was wrong please Try Few Minute Later ...</h1>
                             </div>
-                            <div className='mx-auto  text-center'>
-                                <Plot
-                                    data={[
-                                        {
-                                            x: [close, open],
-                                            y: open,
-                                            type: 'scatter',
-                                            mode: 'lines+markers',
-                                            marker: { color: 'red' },
-                                        },
+                        }
+                    </>
 
-                                    ]}
-
-                                    layout={{ autosize: true, }}
-                                    useResizeHandler
-                                    className="mx-auto w-full h-full"
-
-                                />
-                            </div>
-                        </div>
-                    }
-                </div> : <div className="py-20 w-full">
-                    <h1 className="text-3xl text-red-500 font-bold text-center   w-full">Something was wrong please Try Few Minute Later ...</h1>
-                </div>
             }
+
+
 
         </>
     );
