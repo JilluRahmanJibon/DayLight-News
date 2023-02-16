@@ -86,7 +86,7 @@ const Navbar = () => {
           </div>
           <div className="max-w-[1440px] mx-auto items-center sm:flex-row flex flex-col justify-between">
             <div>
-              <CurrencyConvertor />
+              {/* <CurrencyConvertor /> */}
             </div>
 
             <div>
@@ -118,17 +118,17 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
+
               <li>
                 <NavLink className="text-1xl hover:text-red-500 font-semibold">
                   News
                 </NavLink>
               </li>
-              <li>
+              <li >
                 <NavLink className="text-1xl hover:text-red-500 font-semibold">
                   Sports
                 </NavLink>
               </li>
-
               <li>
                 <NavLink
                   to="/socialMedia"
@@ -172,16 +172,18 @@ const Navbar = () => {
                   </NavLink>
                   <ul
                     tabIndex={1}
-                    className="dropdown-content  grid grid-cols-2 xl:w-[500px] lg:w-[400px]  md:w-[300px] z-50 rounded-md  shadow bg-gray-200 "
+                    className="dropdown-content  grid grid-cols-2 xl:w-[500px] lg:w-[400px]  md:w-[300px] z-50   shadow bg-gray-100 p-2 "
                   >
                     {categories?.map((category, i) => (
                       <li key={i} className="w-full">
+
                         <Link
                           to={`/category/${category}`}
-                          className="block py-1 px-2 hover:pl-8 ease-in-out duration-300 hover:text-white  my-1 hover:bg-red-500"
+                          className="block p-2 px-2 hover:pl-8 ease-in-out duration-300 hover:text-white  my-1 hover:bg-red-500 "
                         >
                           {category}
                         </Link>
+                        <hr />
                       </li>
                     ))}
                   </ul>

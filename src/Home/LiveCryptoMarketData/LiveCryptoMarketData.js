@@ -50,9 +50,7 @@ const LiveCryptoMarketData = () => {
             </div>
 
             <LiveBitcoinPlatprom />
-            {/* <LiveEthereumCryptoPlatprom /> */}
-            {/* <LiveCardanoCryptoPlatprom /> */}
-            {/* <LiveDogecoinCryptoPlatProm /> */}
+
 
         </div >
     );

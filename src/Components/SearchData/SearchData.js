@@ -3,13 +3,12 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import SearchCardData from './SearchCardData';
 
-const SearchData = () =>
-{
+const SearchData = () => {
     const { searchContent } = useContext(AuthContext)
 
     const { data: searchDatas, isLoading } = useQuery({
-        queryKey: [ 'searchNews', searchContent ],
-        queryFn: () => fetch(`${ process.env.REACT_APP_API_URL }searchNews?search=${ searchContent }`).then(res => res.json())
+        queryKey: ['searchNews', searchContent],
+        queryFn: () => fetch(`${process.env.REACT_APP_API_URL}searchNews?search=${searchContent}`).then(res => res.json())
     })
 
 
