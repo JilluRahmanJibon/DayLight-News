@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TbHandClick }from 'react-icons/tb'
+import { FcDonate }from 'react-icons/fc'
 
 
 const DonationModal = () => {
@@ -8,7 +8,7 @@ const DonationModal = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setShowModal(true);
-        }, 1000);
+        }, 20000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -26,7 +26,7 @@ const DonationModal = () => {
                                     <button
                                         onClick={() => setShowModal(false)}
                                         className=' absolute -mt-2 right-0 sm:text-2xl text-lg sm:hidden  bg-gray-200 hover:bg-red-400 px-2 py-1 rounded-full'>
-                                        X
+                                        x
                                     </button>
                                     <figure>
                                         <img
@@ -49,8 +49,8 @@ const DonationModal = () => {
                                         <div className="card-actions ">
                                             <button
                                                 className=" flex items-center justify-center gap-2 py-1 w-full text-xl font-semibold hover:bg-green-600 rounded-md bg-red-200 ">
-                                                Accept
-                                                <TbHandClick />
+                                                Donate
+                                                <FcDonate className='text-2xl' />
                                             </button>
                                         </div>
                                     </div>

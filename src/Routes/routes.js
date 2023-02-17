@@ -61,10 +61,11 @@ export const router = createBrowserRouter([
       { path: "/category/:id", element: <AllCategoryPage /> },
       { path: "/gadgets/:id", element: <Gadgets /> },
       { path: "/GadgetPaymentForm/gadget", element: <GadgetPaymentForm/> },
-
       { path: "/stockMarket", element: <LiveStockMarketData /> },
       { path: "/donate", element: <DonationPage /> },
-
+      {
+        path: "/gadgets",element: <Gadgets />
+      },
       {
         path: "/bdPayment/success",
         element: <BdOnlinePayment />,
@@ -84,11 +85,6 @@ export const router = createBrowserRouter([
       },
       { path: "/addSocialPost", element: <AddSocialPost /> },
       { path: "/mySocialNews", element: <MyNews /> },
-
-      {
-        path: "/gadgets",
-        element: <Gadgets />,
-      },
       {
         path: "/translation",
         element: <TranslationPage />,
@@ -141,14 +137,12 @@ export const router = createBrowserRouter([
             path: "comments",
             element: <Comments />,
           },
+          
         ],
       },
     ],
   },
-  {
-    path: "gadgets",
-    element: <Gadgets />,
-  },
+  
   {
     path: "/account",
     element: (

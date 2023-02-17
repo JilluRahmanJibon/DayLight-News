@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/solid";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { HiCircleStack, IconName } from "react-icons/hi2";
+import { HiCircleStack } from "react-icons/hi2";
 
 const WriterMenu = () => {
   return (

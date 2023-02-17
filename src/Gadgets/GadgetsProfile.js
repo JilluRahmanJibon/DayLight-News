@@ -10,7 +10,6 @@ const GadgetsProfile = () => {
     const { user } = useContext(AuthContext);
     const [storeDelete, setStoreDelete] = useState()
     const [processPayment, setProcessPayment] = useState()
-
     const { data: gadgets, refetch } = useQuery({
         queryKey: ['gadgets'],
         queryFn: () => fetch(`${process.env.REACT_APP_API_URL}gadgets/${user?.email}`)
