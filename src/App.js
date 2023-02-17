@@ -10,6 +10,7 @@ import { AiOutlineWechat } from "react-icons/ai";
 import 'react-loading-skeleton/dist/skeleton.css'
 import { QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 import { AuthContext, DarkAndWhiteContext } from "./Contexts/AuthProvider/AuthProvider";
+import DonationModal from "./Components/DonationModal.js/DonationModal";
 
 
 
@@ -32,6 +33,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>
+      <DonationModal />
 
       <div className="absolute top-1/3 sm:w-12 xl:right-12 lg:right-6 md:right-3 sm:right-2 right-1 overflow-hidden  ">
         <div className="block sm:hidden">
