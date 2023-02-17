@@ -1,6 +1,7 @@
 import { HiOutlineChevronDown, HiOutlineChevronUp, } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
-const GadgetsModal = ({ handleGadgetsBuy, quantity, setQuantity, price, setPrice, select, setSelect}) => {
+const GadgetsModal = ({ handleGadgetsBuy, quantity, setQuantity, price, setPrice, isUserLogin, setIsUserLogin, setSelect }) => {
 
 
     const handleIncrement = () => {
@@ -15,11 +16,11 @@ const GadgetsModal = ({ handleGadgetsBuy, quantity, setQuantity, price, setPrice
         }
     };
 
-    const closeModal =() =>{
+    const closeModal = () => {
         setQuantity(1)
         setPrice(500)
         setSelect(null)
-
+        setIsUserLogin(false)
     }
 
     const gadgetsQuantity = {
@@ -56,9 +57,9 @@ const GadgetsModal = ({ handleGadgetsBuy, quantity, setQuantity, price, setPrice
                                     />
                                 </div>
                                 <div>
-                                    <HiOutlineChevronDown 
+                                    <HiOutlineChevronDown
                                         className='hover:text-red-700  rounded-full bg-red-100'
-                                    onClick={handleDecrement} />
+                                        onClick={handleDecrement} />
                                 </div>
                             </div>
                             <div>
@@ -66,11 +67,19 @@ const GadgetsModal = ({ handleGadgetsBuy, quantity, setQuantity, price, setPrice
                             </div>
 
                         </div>
-                        <button
-                            onClick={() => handleGadgetsBuy(gadgetsQuantity)}
-                            className='  px-4 py-2 rounded-lg text-semibold font-serif text-xl text-white hover:text-black bg-red-700 hover:bg-green-700'>
-                            Add to Dashboard
-                        </button>
+                        {
+                            isUserLogin ? <Link to='/login'
+                                className='  px-4 py-2 rounded-lg text-semibold font-serif text-xl text-white hover:text-black bg-red-700 hover:bg-green-700'>
+                                Login
+                            </Link>
+                                :
+
+                                <button
+                                    onClick={() => handleGadgetsBuy(gadgetsQuantity)}
+                                    className='  px-4 py-2 rounded-lg text-semibold font-serif text-xl text-white hover:text-black bg-red-700 hover:bg-green-700'>
+                                    Add to Dashboard
+                                </button>
+                        }
                     </div>
 
                 </div>

@@ -33,7 +33,6 @@ const WriterProfile = () => {
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState([]);
-  const [profileViews, setProfileViews] = useState([]);
 
   const fetchProfile = () =>
     getUser(user?.email).then((data) => {
@@ -43,7 +42,7 @@ const WriterProfile = () => {
 
   useEffect(() => {
     fetchProfile();
-  }, [user, loading]);
+  }, [user?.email, loading,]);
 
   const handelUpdateProfile = (event) => {
     event.preventDefault();

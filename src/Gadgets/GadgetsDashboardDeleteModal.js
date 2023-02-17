@@ -1,12 +1,12 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 
-const GadgetsDashboardDeleteModal = ({  refetch, setStoreDelete,storeDelete, }) => {
+const GadgetsDashboardDeleteModal = ({ refetch, setStoreDelete, storeDelete, }) => {
 
 
 
     const deleteHandle = id => {
-        fetch(`http://localhost:8000/gadgets/${id}`, {
+        fetch(`http://localhost:8000/order/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",
@@ -45,7 +45,7 @@ const GadgetsDashboardDeleteModal = ({  refetch, setStoreDelete,storeDelete, }) 
                             </button>
                         </button>
                         <label
-                        onClick={()=>setStoreDelete(null) }
+                            onClick={() => setStoreDelete(null)}
                             htmlFor="deleteModal"
                             className="className='flex items-center md:gap-2 gap-0 bg-red-700 text-white  md:px-4 px-1 py-2 rounded-lg text-semibold md:text-xl text-md font-serif  hover:bg-green-600 hover:text-black translate-all'>">
                             Cancel

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { RxCalendar } from 'react-icons/rx';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./gadgets.css"
 import { useQuery } from '@tanstack/react-query';
 import GadgetsCard from './GadgetsCard';
@@ -10,6 +10,7 @@ import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { set } from 'date-fns';
 import GadgetsModal from './GadgetsModal';
+import HomePageSnipper from '../Home/HomePageStorySection/HomePageSnipper';
 
 const Gadgets = () => {
     const [quantity, setQuantity] = useState(1);
@@ -17,6 +18,7 @@ const Gadgets = () => {
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
     const [select, setSelect] = useState(null)
+    const [isUserLogin, setIsUserLogin] = useState(false);
 
     const { data: gadgets, isLoading, refetch } = useQuery({
         queryKey: ['gadgets'],
@@ -26,6 +28,12 @@ const Gadgets = () => {
 
 
     const handleGadgetsBuy = () => {
+        if (!user?.email) {
+            setIsUserLogin(true)
+            toast.error("Please Sign in before then you can buy the product!");
+            return
+
+        }
         const gadgetsAllData = {
             picture: select?.picture,
             productName: select?.productName,
@@ -38,7 +46,7 @@ const Gadgets = () => {
 
 
 
-        fetch(`${process.env.REACT_APP_API_URL}gadgetsBuy`, {
+        fetch(`${process.env.REACT_APP_API_URL}orders`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +65,7 @@ const Gadgets = () => {
     }
 
     if (isLoading) {
-        return;
+        return <HomePageSnipper />
     }
 
     return (
@@ -81,6 +89,9 @@ const Gadgets = () => {
                     setPrice={setPrice}
                     select={select}
                     setSelect={setSelect}
+                    isUserLogin={isUserLogin}
+                    setIsUserLogin={setIsUserLogin}
+
                 />
             }
         </div>
