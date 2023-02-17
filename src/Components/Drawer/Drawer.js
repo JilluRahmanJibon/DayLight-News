@@ -12,7 +12,6 @@ const Drawer = () => {
         queryFn: () => fetch(`${process.env.REACT_APP_API_URL}categories`)
             .then((res) => res.json())
     })
-    const categories = allCategory.filter(n => n !== undefined && n !== null && n !== false && n !== 0)
 
 
     return (
@@ -65,8 +64,8 @@ const Drawer = () => {
                                 <Link tabIndex={1} className="flex items-center gap-1 pl-2"><span>Categories</span> <IoIosArrowDropdown className="mt-1" /></Link>
                                 <ul tabIndex={1} className="dropdown-content sm:w-60 w-20 z-50 rounded-md text-black font-semibold  shadow bg-gray-200 ">
                                     {
-                                        categories?.map((category, i) => <li key={i} className="w-full">
-                                            <Link to={`/category/${category}`} className="block py-1 px-2 hover:pl-8 ease-in-out duration-300 hover:text-white  my-1 hover:bg-red-500 "  >{category}</Link>
+                                        allCategory?.map((category, i) => <li key={i} className="w-full">
+                                            <Link to={`/category/${category?.category}`} className="block py-1 px-2 hover:pl-8 ease-in-out duration-300 hover:text-white  my-1 hover:bg-red-500 "  >{category?.category}</Link>
                                         </li>)
                                     }
 

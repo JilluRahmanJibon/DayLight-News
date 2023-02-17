@@ -19,6 +19,7 @@ function App() {
   const { setIsDarkMode, isDarkMode } = useContext(DarkAndWhiteContext)
   const { user } = useContext(AuthContext)
   const [openIcons, setOpenIcons] = useState(false);
+  
   const [chatOpenBox, setChatOpenBox] = useState(false);
   const handlDarkAndWhiteMode = () => {
 

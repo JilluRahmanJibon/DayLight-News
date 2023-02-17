@@ -158,60 +158,7 @@ export const router = createBrowserRouter([
     path: "gadgets",
     element: <Gadgets />,
   },
-  // {
-  //   path: "/account",
-  //   element: (
-  //     <PrivateRoute>
-  //       <DashboardLayout />
-  //     </PrivateRoute>
-  //   ),
-  //   children: [
-  //     {
-  //       path: "",
-  //       element: <Welcome />,
-  //     },
-  //     {
-  //       path: "admin/profile",
-  //       element: <AdminAccount />,
-  //     },
-  //     {
-  //       path: "writers",
-  //       element: <AllWriters />,
-  //     },
-  //     {
-  //       path: "readers",
-  //       element: <AllReaders />,
-  //     },
-  //     {
-  //       path: "writer/profile",
-  //       element: <WriterProfile />,
-  //     },
-  //     {
-  //       path: "addnews",
-  //       element: <AddNews />,
-  //     },
-  //     {
-  //       path: "updateNews",
-  //       element: <UpdateNews />,
-  //     },
-  //     {
-  //       path: "reader/profile",
-  //       element: <UserProfile />,
-  //     },
-  //     {
-  //       path: "wishlist",
-  //       element: <Wishlist />,
-  //     },
-  //     {
-  //       path: "comments",
-  //       element: <Comments />,
-  //     },
-  //     {
-  //       path: "/account/gadgets/profile",
-  //       element: <GadgetsProfile />,
-  //     },
-  //   ],
-  // },
+
   { path: "story/:id", element: <HomePageStoryAllImage /> },
   { path: "signup", element: <SignUp /> },
   { path: "login", element: <SignIn /> },

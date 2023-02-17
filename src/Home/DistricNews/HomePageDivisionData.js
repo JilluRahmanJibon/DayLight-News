@@ -32,8 +32,7 @@ const HomePageDivisionData = () => {
       setCity({ district: district });
     }
     fetch(
-      `${process.env.REACT_APP_API_URL}district/${
-        city?.district ? city?.district : "Dhaka"
+      `${process.env.REACT_APP_API_URL}district/${city?.district ? city?.district : "Dhaka"
       }`
     )
       .then((res) => res.json())
@@ -68,13 +67,13 @@ const HomePageDivisionData = () => {
                 <>
                   {districtData.length ? districtData?.slice(1, 2)?.map((data) => (
                     <HomePageDivisionSingleCard data={data} key={data?._id} />
-                  )) : <SkeletonLoading cards={3} />}
+                  )) : <SkeletonLoading cards={1} />}
                 </>
               ) : (
                 <>
                   {preData.length ? preData.slice(1, 2).map((data) => (
                     <HomePageDivisionSingleCard data={data} key={data?._id} />
-                  )) : <SkeletonLoading cards={3} />}
+                  )) : <SkeletonLoading cards={1} />}
                 </>
               )}
             </div>
@@ -83,13 +82,13 @@ const HomePageDivisionData = () => {
                 <>
                   {districtData.length ? districtData?.slice(0, 6).map((data) => (
                     <DivisionTitleData data={data} key={data?._id} />
-                  )) : <SkeletonLoading cards={3} />}
+                  )) : <SkeletonLoading cards={1} />}
                 </>
               ) : (
                 <>
                   {preData.length ? preData?.slice(0, 6).map((data) => (
                     <DivisionTitleData data={data} key={data?._id} />
-                  )) : <SkeletonLoading cards={3} />}
+                  )) : <SkeletonLoading cards={1} />}
                 </>
               )}
             </div>

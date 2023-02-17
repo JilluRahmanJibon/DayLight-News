@@ -43,9 +43,6 @@ const Navbar = () => {
       ),
   });
 
-  const categories = allCategory.filter(
-    (n) => n !== undefined && n !== null && n !== false && n !== 0
-  );
 
   return (
     <main>
@@ -84,7 +81,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="max-w-[1440px] mx-auto items-center sm:flex-row flex flex-col justify-between">
-            <div>{/* <CurrencyConvertor /> */}</div>
+            {/* <div><CurrencyConvertor /></div> */}
 
             <div>
               <h1 className="text-xl select-none font-bold italic w-40 sm:w-52 md:w-72 h-8 sm:h-12">
@@ -165,13 +162,13 @@ const Navbar = () => {
                     tabIndex={1}
                     className="dropdown-content  grid grid-cols-2 xl:w-[500px] lg:w-[400px]  md:w-[300px] z-50   shadow bg-gray-100 p-2 "
                   >
-                    {categories?.map((category, i) => (
+                    {allCategory?.map((category, i) => (
                       <li key={i} className="w-full">
                         <Link
-                          to={`/category/${category}`}
+                          to={`/category/${category?.category}`}
                           className="block p-2 px-2 hover:pl-8 ease-in-out duration-300 hover:text-white  my-1 hover:bg-red-500 "
                         >
-                          {category}
+                          {category?.category}
                         </Link>
                         <hr />
                       </li>

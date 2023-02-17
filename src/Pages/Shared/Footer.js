@@ -31,9 +31,7 @@ const Footer = () =>
       ),
   });
 
-  const categories = allCategory.filter(
-    (n) => n !== undefined && n !== null && n !== false && n !== 0
-  );
+ 
 
   const { data: footerTopPost } = useQuery({
     queryKey: [ "breakingNews" ],
@@ -93,13 +91,13 @@ const Footer = () =>
         <div>
           <h1 className="font-bold text-lg pb-6">POPULAR CATEGORIES</h1>
           <div className="w-full">
-            {categories?.slice(0, 6)?.map((category) => (
-              <div key={category}>
-                <Link to={`/category/${ category }`} className="py-2 block ">
+            {allCategory?.slice(0, 6)?.map((category) => (
+              <div key={category?.category}>
+                <Link to={`/category/${category?.category }`} className="py-2 block ">
                   <div className="flex justify-between  hover:text-red-600">
                     <div className="flex items-center gap-2">
                       <HiChevronDoubleRight></HiChevronDoubleRight>
-                      <p> {category}</p>
+                      <p> {category?.category}</p>
                     </div>
                     <div>
                       <p>(05)</p>

@@ -17,9 +17,9 @@ const DonationModal = () => {
         <div >
             {
                 showModal &&
-                <>
-                    <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                        <div className="relative w-11/12 my-6 mx-auto max-w-3xl">
+                <div >
+                    <div className={`flex  justify-center items-center  overflow-x-hidden overflow-y-auto fixed  inset-0 z-50 outline-none focus:outline-none `}>
+                        <div className="relative shadow-2xl p-3 w-11/12 my-6 mx-auto max-w-3xl">
                             <div className="border-0 position rounded-lg shadow-lg relative flex flex-col w-full  bg-gray-100 outline-none focus:outline-none">
 
                                 <div className="card  sm:card-side shadow-xl sm:px-2 ">
@@ -58,7 +58,7 @@ const DonationModal = () => {
                             </div>
                         </div>
                     </div>
-                </>
+                </div>
 
 
             }
