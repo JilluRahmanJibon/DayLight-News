@@ -29,16 +29,8 @@ const Drawer = () => {
                             <Link to="/" className='block py-1 hover:bg-red-500 hover:text-white ease-in-out duration-300 pl-2 hover:pl-8'>Home</Link>
                             <hr />
                         </li>
-                        <li className='w-full p-1'>
-                            <Link className='block py-1 hover:bg-red-500 hover:text-white ease-in-out duration-300 pl-2 hover:pl-8'>News</Link>
-                            <hr />
 
-                        </li>
-                        <li className='w-full p-1'>
-                            <Link className='block py-1 hover:bg-red-500 hover:text-white ease-in-out duration-300 pl-2 hover:pl-8'>Sports</Link>
-                            <hr />
 
-                        </li>
                         <li className='w-full p-1'>
                             <Link to="/socialMedia" className='block py-1 hover:bg-red-500 hover:text-white ease-in-out duration-300 pl-2 hover:pl-8'> SocialMedia</Link>
                             <hr />
